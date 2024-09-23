@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://oxhbsbrqyjjx"]
+
+[ext_resource type="Script" path="res://Scripts/2p.gd" id="1_7oqm0"]
+
+[node name="2p" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7oqm0")
+
+[node name="host" type="Button" parent="."]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 360.0
+offset_right = 538.0
+offset_bottom = 439.0
+theme_override_font_sizes/font_size = 30
+text = "Create Game"
+
+[node name="join" type="Button" parent="."]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 357.0
+offset_right = 931.0
+offset_bottom = 436.0
+theme_override_font_sizes/font_size = 30
+text = "Join Game"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 571.0
+offset_right = 196.0
+offset_bottom = 621.0
+theme_override_font_sizes/font_size = 20
+text = "Back"
+
+[node name="name" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 136.0
+offset_right = 777.0
+offset_bottom = 183.0
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 61.0
+offset_right = 748.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 280.0
+offset_right = 535.0
+offset_bottom = 349.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Host"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 277.0
+offset_right = 921.0
+offset_bottom = 346.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Find game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -1,0 +1,592 @@
+[gd_scene load_steps=53 format=3 uid="uid://135cro1dhcwm"]
+
+[ext_resource type="Script" path="res://levelCustomize.gd" id="1_n5j6e"]
+[ext_resource type="Texture2D" uid="uid://cj45b0imwu6o2" path="res://Levels/maps/gothic-castle-preview.png" id="2_nmtg6"]
+[ext_resource type="Texture2D" uid="uid://v0cv6ckg1nwv" path="res://Vid/arrow.png" id="3_1636t"]
+[ext_resource type="Texture2D" uid="uid://bnlf5d5ya5m37" path="res://Levels/characters/demon-idle.png" id="3_hskpv"]
+[ext_resource type="Texture2D" uid="uid://do4hi5ow4laxr" path="res://Levels/characters/fire-skull.png" id="4_kutdr"]
+[ext_resource type="Texture2D" uid="uid://qbe1n18ov2y6" path="res://Levels/characters/gothic-hero-idle.png" id="5_4h5ib"]
+[ext_resource type="Texture2D" uid="uid://c6landk07kx8j" path="res://Levels/characters/Spritesheet.png" id="6_nevlr"]
+[ext_resource type="Texture2D" uid="uid://dhqt7sq3ew1b3" path="res://Levels/characters/sunny-dragon-fly.png" id="7_sqmh6"]
+[ext_resource type="Texture2D" uid="uid://cwt0ojw7o32v4" path="res://Vid/turn based.png" id="8_pp0p8"]
+[ext_resource type="Texture2D" uid="uid://cxi1q1u5y4sxj" path="res://Vid/2dcombat.jpg" id="9_hto5p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqema"]
+atlas = ExtResource("3_hskpv")
+region = Rect2(0, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so7lg"]
+atlas = ExtResource("3_hskpv")
+region = Rect2(160, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsa3j"]
+atlas = ExtResource("3_hskpv")
+region = Rect2(320, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjsly"]
+atlas = ExtResource("3_hskpv")
+region = Rect2(480, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quhck"]
+atlas = ExtResource("3_hskpv")
+region = Rect2(640, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3u4d"]
+atlas = ExtResource("3_hskpv")
+region = Rect2(800, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07yao"]
+atlas = ExtResource("4_kutdr")
+region = Rect2(0, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s01g6"]
+atlas = ExtResource("4_kutdr")
+region = Rect2(96, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_441ee"]
+atlas = ExtResource("4_kutdr")
+region = Rect2(192, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tinag"]
+atlas = ExtResource("4_kutdr")
+region = Rect2(288, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_168v4"]
+atlas = ExtResource("4_kutdr")
+region = Rect2(384, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7v00"]
+atlas = ExtResource("4_kutdr")
+region = Rect2(480, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3555a"]
+atlas = ExtResource("4_kutdr")
+region = Rect2(576, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb1uk"]
+atlas = ExtResource("4_kutdr")
+region = Rect2(672, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1q10"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em4a3"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuvd7"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpwcs"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsu88"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(0, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmb5m"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(96, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0k6c"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(192, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vrqc"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(288, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g202g"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(0, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulicb"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(96, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25jwg"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(192, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xmmw"]
+atlas = ExtResource("5_4h5ib")
+region = Rect2(288, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mlch"]
+atlas = ExtResource("6_nevlr")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjfux"]
+atlas = ExtResource("6_nevlr")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctsc3"]
+atlas = ExtResource("6_nevlr")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdjx2"]
+atlas = ExtResource("6_nevlr")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvxka"]
+atlas = ExtResource("6_nevlr")
+region = Rect2(320, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd2up"]
+atlas = ExtResource("6_nevlr")
+region = Rect2(400, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8kjr"]
+atlas = ExtResource("7_sqmh6")
+region = Rect2(0, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao5gk"]
+atlas = ExtResource("7_sqmh6")
+region = Rect2(192, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hus5o"]
+atlas = ExtResource("7_sqmh6")
+region = Rect2(384, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbdmy"]
+atlas = ExtResource("7_sqmh6")
+region = Rect2(576, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7mf0"]
+atlas = ExtResource("7_sqmh6")
+region = Rect2(768, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aga0"]
+atlas = ExtResource("7_sqmh6")
+region = Rect2(960, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47le5"]
+atlas = ExtResource("7_sqmh6")
+region = Rect2(1152, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgiby"]
+atlas = ExtResource("7_sqmh6")
+region = Rect2(1344, 0, 192, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps643"]
+atlas = ExtResource("7_sqmh6")
+region = Rect2(1536, 0, 192, 176)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8d70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqema")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so7lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsa3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjsly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quhck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3u4d")
+}],
+"loop": true,
+"name": &"1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07yao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s01g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_441ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tinag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_168v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7v00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3555a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb1uk")
+}],
+"loop": true,
+"name": &"2",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1q10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em4a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuvd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpwcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsu88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmb5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0k6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vrqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g202g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulicb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25jwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xmmw")
+}],
+"loop": true,
+"name": &"3",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mlch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjfux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctsc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdjx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvxka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd2up")
+}],
+"loop": true,
+"name": &"4",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8kjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao5gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hus5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbdmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7mf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aga0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47le5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgiby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps643")
+}],
+"loop": true,
+"name": &"5",
+"speed": 8.0
+}]
+
+[node name="levelCustomize" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n5j6e")
+
+[node name="MapPreview" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 142.0
+offset_right = 1112.0
+offset_bottom = 319.0
+texture = ExtResource("2_nmtg6")
+expand_mode = 1
+
+[node name="ConfrimButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 956.0
+offset_top = 604.0
+offset_right = 1135.0
+offset_bottom = 639.0
+text = "Confirm"
+
+[node name="PreviousButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 709.0
+offset_top = 214.0
+offset_right = 749.0
+offset_bottom = 254.0
+icon = ExtResource("3_1636t")
+
+[node name="PreviousButton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 811.0
+offset_top = 442.0
+offset_right = 844.0
+offset_bottom = 471.0
+icon = ExtResource("3_1636t")
+
+[node name="NextButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1150.0
+offset_top = 256.0
+offset_right = 1190.0
+offset_bottom = 296.0
+rotation = 3.13815
+icon = ExtResource("3_1636t")
+
+[node name="NextButton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1071.0
+offset_top = 478.0
+offset_right = 1111.0
+offset_bottom = 518.0
+rotation = 3.13703
+icon = ExtResource("3_1636t")
+
+[node name="CharacterPreview" type="AnimatedSprite2D" parent="."]
+position = Vector2(937, 439.333)
+scale = Vector2(1, 1.15278)
+sprite_frames = SubResource("SpriteFrames_p8d70")
+animation = &"5"
+autoplay = "5"
+frame_progress = 0.148799
+
+[node name="MapName" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 391.0
+offset_top = 28.0
+offset_right = 769.0
+offset_bottom = 61.0
+
+[node name="Map" type="Label" parent="."]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 26.0
+offset_right = 389.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 30
+text = "MAP:"
+horizontal_alignment = 2
+
+[node name="Bot" type="Label" parent="."]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 140.0
+offset_right = 436.0
+offset_bottom = 182.0
+theme_override_font_sizes/font_size = 30
+text = "Bot difficult:"
+
+[node name="EasyCheckBox" type="CheckBox" parent="." groups=["checkbox_group"]]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 190.0
+offset_right = 284.0
+offset_bottom = 214.0
+button_pressed = true
+
+[node name="NormalCheckBox2" type="CheckBox" parent="." groups=["checkbox_group"]]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 227.0
+offset_right = 283.0
+offset_bottom = 251.0
+
+[node name="HardCheckBox3" type="CheckBox" parent="." groups=["checkbox_group"]]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 269.0
+offset_right = 283.0
+offset_bottom = 293.0
+
+[node name="ExtremeCheckBox4" type="CheckBox" parent="." groups=["checkbox_group"]]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 309.0
+offset_right = 283.0
+offset_bottom = 333.0
+
+[node name="EasyLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 194.0
+offset_right = 400.0
+offset_bottom = 214.0
+text = "Easy
+"
+
+[node name="NormalLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 230.0
+offset_right = 399.0
+offset_bottom = 250.0
+text = "Normal"
+
+[node name="HardLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 272.0
+offset_right = 398.0
+offset_bottom = 292.0
+text = "Hard"
+
+[node name="ExtremeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 312.0
+offset_right = 398.0
+offset_bottom = 332.0
+text = "Extreme"
+
+[node name="Mode" type="Label" parent="."]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 139.0
+offset_right = 584.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 30
+text = "Mode:"
+
+[node name="DB" type="CheckBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.054
+anchor_bottom = 0.167
+offset_left = 37.0
+offset_top = 221.0
+offset_right = -1.208
+offset_bottom = 136.784
+
+[node name="Question" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 139.0
+offset_right = 180.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 30
+text = "Question:"
+
+[node name="BelenSan" type="Label" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 206.0
+offset_right = 178.0
+offset_bottom = 259.0
+theme_override_font_sizes/font_size = 20
+text = "Belen san
+ ashiglah"
+
+[node name="UuruuAsuult" type="Button" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 290.0
+offset_right = 210.0
+offset_bottom = 335.0
+text = "Uuruu asuult
+ beldeh"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 195.0
+offset_right = 609.0
+offset_bottom = 215.0
+
+[node name="TurnBased" type="Sprite2D" parent="."]
+position = Vector2(203, 495)
+scale = Vector2(0.434752, 0.457179)
+texture = ExtResource("8_pp0p8")
+
+[node name="2Dcombat" type="Sprite2D" parent="."]
+position = Vector2(567, 492)
+scale = Vector2(0.3065, 0.308319)
+texture = ExtResource("9_hto5p")
+
+[node name="turnBased" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 604.0
+offset_right = 230.0
+offset_bottom = 628.0
+
+[node name="2dCombat" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 601.0
+offset_right = 649.0
+offset_bottom = 625.0
+button_pressed = true
+
+[node name="TurnBased2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 603.0
+offset_right = 204.0
+offset_bottom = 628.0
+theme_override_font_sizes/font_size = 20
+text = "Turn based:"
+
+[node name="2dCombat2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 600.0
+offset_right = 610.0
+offset_bottom = 625.0
+theme_override_font_sizes/font_size = 20
+text = "2D Combat"
+
+[connection signal="pressed" from="ConfrimButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="PreviousButton2" to="." method="_on_previous_button_2_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="NextButton2" to="." method="_on_next_button_2_pressed"]
+[connection signal="toggled" from="EasyCheckBox" to="." method="_on_easy_check_box_toggled"]
+[connection signal="toggled" from="NormalCheckBox2" to="." method="_on_normal_check_box_2_toggled"]
+[connection signal="toggled" from="HardCheckBox3" to="." method="_on_hard_check_box_3_toggled"]
+[connection signal="toggled" from="ExtremeCheckBox4" to="." method="_on_extreme_check_box_4_toggled"]
+[connection signal="pressed" from="UuruuAsuult" to="." method="_on_uuruu_asuult_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
