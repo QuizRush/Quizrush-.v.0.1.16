@@ -59,7 +59,7 @@ stream = ExtResource("2_snjfk")
 autoplay = true
 loop = true
 
-[node name="1p" type="Button" parent="."]
+[node name="play" type="Button" parent="."]
 layout_mode = 0
 offset_left = 490.0
 offset_top = 273.0
@@ -67,24 +67,24 @@ offset_right = 675.0
 offset_bottom = 341.0
 theme = SubResource("Theme_4ipr2")
 theme_override_font_sizes/font_size = 50
-text = "1 Player"
+text = "Play"
 
-[node name="2p" type="Button" parent="."]
+[node name="levelCustomize" type="Button" parent="."]
 layout_mode = 0
-offset_left = 495.0
-offset_top = 346.0
-offset_right = 689.0
-offset_bottom = 414.0
+offset_left = 403.0
+offset_top = 347.0
+offset_right = 790.0
+offset_bottom = 415.0
 theme = SubResource("Theme_2n0sv")
 theme_override_font_sizes/font_size = 50
-text = "2 Player"
+text = "Level customize"
 
 [node name="options" type="Button" parent="."]
 layout_mode = 0
-offset_left = 494.0
-offset_top = 414.0
-offset_right = 688.0
-offset_bottom = 482.0
+offset_left = 489.0
+offset_top = 419.0
+offset_right = 683.0
+offset_bottom = 487.0
 theme = SubResource("Theme_2n0sv")
 theme_override_font_sizes/font_size = 50
 text = "Options
@@ -92,10 +92,10 @@ text = "Options
 
 [node name="exit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 494.0
-offset_top = 482.0
-offset_right = 596.0
-offset_bottom = 550.0
+offset_left = 527.0
+offset_top = 484.0
+offset_right = 629.0
+offset_bottom = 552.0
 theme = SubResource("Theme_0rxg7")
 theme_override_font_sizes/font_size = 50
 text = "Exit
@@ -112,7 +112,7 @@ text = "QuizRush"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="1p" to="." method="_on_p_pressed"]
-[connection signal="pressed" from="2p" to="." method="_on_2p_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="levelCustomize" to="." method="_on_level_customize_pressed"]
 [connection signal="pressed" from="options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

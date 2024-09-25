@@ -165,33 +165,17 @@ func StartGame():
 	onStartGame.emit()
 	hide()
 func _on_submit_button_pressed():
-	var storage_key = "QuestionList"
+	var dataList = await client.list_storage_objects_async(session, "Question", session.user_id, 5)
+	var objects = dataList.objects  # Access the objects property
+	var json_parser = JSON.new()
+	var questions_list = []  # List to hold all questions
 
-	# Retrieve existing questions
-	var storage_object_ids = [NakamaWriteStorageObject.new("Question", storage_key, 1, 1, "", "")]
-	var result = await client.read_storage_objects_async(session, storage_object_ids)
-
-	var question_list = []
-	if result.is_exception():
-		print("Error retrieving questions: " + str(result))
-		return
-
-	if result.objects.size() > 0:
-		print("Retrieved storage object: " + str(result.objects[0]))
-		var json_instance = JSON.new()
-		var parse_result = json_instance.parse(result.objects[0].value)
-
+	for obj in objects:
+		var parse_result = json_parser.parse(obj.value)
 		if parse_result == OK:
-			var data = json_instance.get_data()
-			if data.has("questions"):  # Check if the key exists
-				question_list = data["questions"]  # Get the existing questions
-				
-			else:
-				print("Key 'questions' not found in data.")
-		else:
-			print("Error parsing JSON: " + str(parse_result))
-	else:
-		print("No existing questions found, creating a new list.")
+			var data = json_parser.data  # Parsed data from the storage
+			if data.has("questions"):
+				questions_list = data["questions"]  # Get existing questions
 
 	# Create the new question
 	var new_question = {
@@ -199,26 +183,24 @@ func _on_submit_button_pressed():
 		"options": [option_1.text, option_2.text, option_3.text, option_4.text],
 		"correct_answer": correct_answer.text
 	}
-	question_list.append(new_question) 
-	print('psda') # Add the new question to the list
-	print(question_list)
-	print(new_question)
+
+	# Append the new question to the list
+	questions_list.append(new_question)
+
 	# Wrap the updated question list in an object to save
 	var json_data = {
-		"questions": question_list
+		"questions": questions_list
 	}
 
+	# Convert the updated data to JSON format
+	var data_to_save = JSON.stringify(json_data)
+
 	# Save the updated list back to Nakama
-	var data = JSON.stringify(json_data)  # Stringify the object
 	var write_result = await client.write_storage_objects_async(session, [
-		NakamaWriteStorageObject.new("Question", storage_key, 1, 1, data, "")
+		NakamaWriteStorageObject.new("Question", "Question", 1, 1, data_to_save, "")
 	])
 
-	if write_result.is_exception():
-		print("Error: " + str(write_result))
-		return
-
-	print("Successfully stored")
+	# Clear the input fields
 	question_text.text = ""
 	option_1.text = ""
 	option_2.text = ""
@@ -226,37 +208,72 @@ func _on_submit_button_pressed():
 	option_4.text = ""
 	correct_answer.text = ""
 
+	print("Successfully stored")
 func _on_submit_button_2_pressed():
+	
+	var dataList1 = await client.list_storage_objects_async(session, "Question1", session.user_id, 5)
+	var objects1 = dataList1.objects  # Access the objects property
+	var json_parser1 = JSON.new()
+	var questions_list1 = []  
+	
+	for obj1 in objects1:
+		var parse_result1 = json_parser1.parse(obj1.value)
+		if parse_result1 == OK:
+			var data1 = json_parser1.data  # Parsed data from the storage
+			if data1.has("questions"):
+				questions_list1 = data1["questions"]  # Get existing questions
+
+
 	var question1 = {
 		"question_text1": question_text1.text,
 		"keyword": keyword.text
 	}
-	var data = JSON.stringify(question1)
-	
-	var result = await client.write_storage_objects_async(session,[
-		NakamaWriteStorageObject.new("Question1", "Question1", 1, 1 ,data, "")
+	questions_list1.append(question1)
+
+	var json_data1 = {
+		"questions": questions_list1
+	}
+
+	var data_to_save1 = JSON.stringify(json_data1)
+
+	# Save the updated list back to Nakama
+	var write_result = await client.write_storage_objects_async(session, [
+		NakamaWriteStorageObject.new("Question1", "Question1", 1, 1, data_to_save1, "")
 	])
-	
-	if result.is_exception():
-		print("Error"+ str(result))
-		return
+
 	print("Succesfully stored")
 	question_text1.text = ""
 	keyword.text = ""
 func _on_button_pressed():
+	var dataList2 = await client.list_storage_objects_async(session, "Question2", session.user_id, 5)
+	var objects2 = dataList2.objects  # Access the objects property
+	var json_parser2 = JSON.new()
+	var questions_list2 = []  
+	
+	for obj2 in objects2:
+		var parse_result2 = json_parser2.parse(obj2.value)
+		if parse_result2 == OK:
+			var data2 = json_parser2.data  # Parsed data from the storage
+			if data2.has("questions"):
+				questions_list2 = data2["questions"]  # Get existing questions
+	
+	
 	var question2 = {
 		"question_text2": question_text2.text,
 		"True or False": torf
 	}
-	var data = JSON.stringify(question2)
-	
-	var result = await client.write_storage_objects_async(session,[
-		NakamaWriteStorageObject.new("Question2", "Question2", 1, 1 ,data, "")
+	questions_list2.append(question2)
+
+	var json_data2 = {
+		"questions": questions_list2
+	}
+
+	var data_to_save2 = JSON.stringify(json_data2)
+
+	# Save the updated list back to Nakama
+	var write_result = await client.write_storage_objects_async(session, [
+		NakamaWriteStorageObject.new("Question2", "Question2", 1, 1, data_to_save2, "")
 	])
-	
-	if result.is_exception():
-		print("Error"+ str(result))
-		return
 	print("Succesfully stored")
 	question_text2.text = ""
 func _on_check_button_toggled(checked: bool):
