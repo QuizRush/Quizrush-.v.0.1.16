@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Levels/Global.gd"
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
+GlovbalQuestions="*res://Scripts/Glovbal_questions.gd"
 
 [display]
 
@@ -45,10 +46,6 @@ folder_colors={
 "res://resources/": "red",
 "res://sprties/": "gray"
 }
-
-[gui]
-
-theme/custom_font="res://font/PixelifySans-VariableFont_wght.ttf"
 
 [input]
 

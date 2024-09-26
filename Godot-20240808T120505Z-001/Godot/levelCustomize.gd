@@ -31,6 +31,21 @@ var map_images = [
 	preload("res://Levels/maps/preview-sci-fi-environment-tileset.png")
 ]
 
+var map_infos = [
+	"gothic-castle",
+	"mist-forest",
+	"night-town",
+	"platformer",
+	"sci-fi-environment"
+]
+
+var char_infos = [
+	"demon-idle",
+	"fire-skull",
+	"gothic-hero-idle",
+	"Spritesheet",
+	"sunny-dragon-fly"
+]
 
 func _on_checkbox_toggled(checkbox: CheckBox):
 	if checkbox.pressed:
@@ -61,8 +76,8 @@ func _on_previous_button_pressed():
 	update_map_preview()
 	
 func update_map_preview():
-	$MapPreview.texture = map_images[current_map_index]
-
+	$Panel4/MapPreview.texture = map_images[current_map_index]
+	$Panel4/info.text = map_infos[current_map_index]
 func _on_button_pressed():
 	var selected_map_scene = map_scenes[current_map_index]
 	get_tree().change_scene_to_file(selected_map_scene)
@@ -76,8 +91,8 @@ func _on_previous_button_2_pressed():
 	update_character_preview()
 	
 func update_character_preview():
-	$CharacterPreview.play(str(current_char_index))
-
+	$Panel4/CharacterPreview.play(str(current_char_index))
+	$Panel4/info1.text = char_infos[current_char_index]
 func _on_next_button_2_pressed():
 	current_char_index += 1
 	if current_char_index >= character_animations.size():
@@ -86,7 +101,6 @@ func _on_next_button_2_pressed():
 
 func _on_single_toggled(toggled_on):
 	if($Panel/Single.toggle_mode==true):
-
 		$Panel/Multi.toggle_mode=false
 		$Panel5/info.text="Solo-leveling. Bugdin gantsaaraa shaana"
 	toggledInfo=0
@@ -122,3 +136,15 @@ func _on_survival_toggled(toggled_on):
 func update_review():
 	$Panel5/Info.texture = info[toggledInfo]
 	
+func _on_use_db_pressed():
+	get_tree().change_scene_to_file("res://qShow.tscn")
+	$Panel2/DB.disabled = false
+	
+func _on_custom_q_pressed():
+	get_tree().change_scene_to_file("res://Scenes/control.tscn")
+	$Panel2/DB2.disabled = false
+	
+
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

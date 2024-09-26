@@ -281,3 +281,11 @@ func _on_check_button_toggled(checked: bool):
 		torf=true
 	else:
 		torf=false
+
+
+func _on_done_pressed():
+	get_tree().change_scene_to_file("res://Scenes/level_customize.tscn")
+
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://Scenes/options.tscn")

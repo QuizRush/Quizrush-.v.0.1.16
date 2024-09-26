@@ -37,24 +37,53 @@ func display_questions(dataList):
 	var vbox = $Panel3/VBoxContainer
 	var vvbox3 = $Panel3/VBoxContainer5
 	var json_instance = JSON.new()
-	var objects = dataList.objects 
+	var objects = dataList.objects
+	
 	for obj in objects:
-		var parse_result = json_instance.parse(obj.value) 
-		if parse_result == OK:  
-			var data = json_instance.get_data()  
+		var parse_result = json_instance.parse(obj.value)
+		if parse_result == OK:
+			var data = json_instance.get_data()
 			if data.has("questions"):
 				var questions = data["questions"]
 				for question in questions:
+					
 					var question_label = Label.new()
-					question_label.text = question["question_text2"] 
+					question_label.text = question["question_text2"]
+					
 					var answer_label = Label.new()
-					answer_label.text = "答え: " + ("はい" if question["True or False"] else "いいえ") 
-					var check3 = CheckBox.new()
-					vvbox3.add_child(check3)
-					vbox.add_child(question_label) 
-					vbox.add_child(answer_label)    
-					vbox.add_child(Control.new())   
+					answer_label.text = "答え: " + ("はい" if question["True or False"] else "いいえ")
 
+					var check3 = CheckBox.new()
+					check3.set_meta("question", question)
+
+					vvbox3.add_child(check3)
+					vbox.add_child(question_label)
+					vbox.add_child(answer_label)
+					vbox.add_child(Control.new())
+
+		$Done.connect("pressed", Callable(self, "_on_done_pressed"))
+
+		
+func _on_done_pressed():
+	var checked_questions = []
+	var vvbox3 = $Panel3/VBoxContainer5
+	var vvbox2 = $Panel2/VBoxContainer4
+	var vvbox1 = $Panel/VBoxContainer3
+	for child in vvbox3.get_children():
+		if child is CheckBox and child.is_pressed():
+			var question = child.get_meta("question") 
+			GlovbalQuestions.checked_questions.append(question)
+	for child in vvbox2.get_children():
+		if child is CheckBox and child.is_pressed():
+			var question = child.get_meta("question") 
+			GlovbalQuestions.checked_questions.append(question)
+	for child in vvbox1.get_children():
+		if child is CheckBox and child.is_pressed():
+			var question = child.get_meta("question") 
+			GlovbalQuestions.checked_questions.append(question)
+	print(GlovbalQuestions.checked_questions)
+	get_tree().change_scene_to_file("res://Scenes/level_customize.tscn")
+	
 func display_questions1(dataList1):
 	var vbox1 = $Panel/VBoxContainer1
 	var vvbox1 = $Panel/VBoxContainer3
@@ -69,6 +98,7 @@ func display_questions1(dataList1):
 				for question1 in questions1:
 					var question_label1 = Label.new()
 					var check = CheckBox.new()
+					check.set_meta("question", question1)
 					question_label1.text = question1["question_text"]
 					vbox1.add_child(question_label1)   
 					vvbox1.add_child(check)
@@ -88,6 +118,7 @@ func display_questions2(dataList2):
 				for question2 in questions2:
 					var question_label2 = Label.new()
 					var check2 = CheckBox.new()
+					check2.set_meta("question", question2)
 					question_label2.text = question2["question_text1"]  
 					var answer_label2 = Label.new()
 					answer_label2.text = "キーワード: " + (question2["keyword"]) 
@@ -95,3 +126,4 @@ func display_questions2(dataList2):
 					vbox2.add_child(answer_label2)  
 					vvbox2.add_child(check2)  
 					vbox2.add_child(Control.new())   
+
