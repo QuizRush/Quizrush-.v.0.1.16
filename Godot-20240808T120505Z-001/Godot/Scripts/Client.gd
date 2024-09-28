@@ -1,5 +1,5 @@
 extends Control
-#class_name NakamaMultiplayer
+class_name NakamaMultiplayer
 
 var session : NakamaSession # this is the session
 var client : NakamaClient # this is the client {session}
@@ -632,8 +632,3 @@ func _on_cancel_trade_offer_button_down():
 	var response = JSON.parse_string(result.payload)
 	print("Canceled trade offer " + response.result)
 	pass # Replace with function body.
-
-func _on_back_pressed():
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
-
-

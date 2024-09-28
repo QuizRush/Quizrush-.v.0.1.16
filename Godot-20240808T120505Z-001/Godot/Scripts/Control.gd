@@ -1,5 +1,5 @@
 extends Control
-class_name NakamaMultiplayer
+#class_name NakamaMultiplayer
 
 var session: NakamaSession
 var client: NakamaClient

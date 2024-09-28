@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=3 uid="uid://135cro1dhcwm"]
 
-[ext_resource type="Script" path="res://levelCustomize.gd" id="1_n5j6e"]
+[ext_resource type="Script" path="res://Scripts/levelCustomize.gd" id="1_n5j6e"]
 [ext_resource type="Texture2D" uid="uid://cj45b0imwu6o2" path="res://Levels/maps/gothic-castle-preview.png" id="2_nmtg6"]
 [ext_resource type="Texture2D" uid="uid://v0cv6ckg1nwv" path="res://Vid/arrow.png" id="3_1636t"]
 [ext_resource type="Texture2D" uid="uid://bnlf5d5ya5m37" path="res://Levels/characters/demon-idle.png" id="3_hskpv"]

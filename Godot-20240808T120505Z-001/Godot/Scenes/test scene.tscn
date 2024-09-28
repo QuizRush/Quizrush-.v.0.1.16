@@ -1,30 +1,139 @@
-[gd_scene load_steps=2 format=3 uid="uid://oxhbsbrqyjjx"]
+[gd_scene load_steps=2 format=3 uid="uid://p2ptqa1u1n1k"]
 
-[ext_resource type="Script" path="res://Scripts/2p.gd" id="1_7oqm0"]
+[ext_resource type="Script" path="res://Scripts/Client.gd" id="1_0l8st"]
 
-[node name="2p" type="Control"]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7oqm0")
+script = ExtResource("1_0l8st")
 
-[node name="back" type="Button" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 571.0
-offset_right = 196.0
-offset_bottom = 621.0
-theme_override_font_sizes/font_size = 20
-text = "Back"
+offset_left = 398.0
+offset_top = 14.0
+offset_right = 675.0
+offset_bottom = 109.0
+
+[node name="UserAccountLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 39.0
+offset_right = 146.0
+offset_bottom = 62.0
+text = "User Account"
+
+[node name="UserAccountText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 39.0
+offset_right = 264.0
+offset_bottom = 62.0
+text = "user account"
+
+[node name="DisplayName" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 63.0
+offset_right = 148.0
+offset_bottom = 86.0
+text = "Display Name"
+
+[node name="DisplayNameText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 63.0
+offset_right = 264.0
+offset_bottom = 86.0
+text = "user account"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 400.0
+offset_bottom = 182.0
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 20.0
+offset_right = 108.0
+offset_bottom = 43.0
+text = "Email"
+
+[node name="Label2" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 69.0
+offset_right = 108.0
+offset_bottom = 92.0
+text = "Password"
+
+[node name="EmailInput" type="LineEdit" parent="Panel2"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 23.0
+offset_right = 347.0
+offset_bottom = 54.0
+text = "test@gmail.com"
+
+[node name="PasswordInput" type="LineEdit" parent="Panel2"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 63.0
+offset_right = 347.0
+offset_bottom = 94.0
+text = "password"
+
+[node name="LoginButton" type="Button" parent="Panel2"]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 114.0
+offset_right = 352.0
+offset_bottom = 157.0
+text = "Submit"
+
+[node name="Data Pannel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 508.0
+offset_right = 241.0
+offset_bottom = 637.0
+
+[node name="StoreData" type="Button" parent="Data Pannel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 11.0
+offset_right = 199.0
+offset_bottom = 42.0
+text = "Store Data"
+
+[node name="GetData" type="Button" parent="Data Pannel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 49.0
+offset_right = 137.0
+offset_bottom = 71.0
+text = "Get Data from Store"
+
+[node name="ListData" type="Button" parent="Data Pannel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 90.0
+offset_right = 200.0
+offset_bottom = 121.0
+text = "List Data from Store"
 
 [node name="Panel3" type="Panel" parent="."]
-offset_left = -4.0
-offset_top = 1.0
-offset_right = 249.0
-offset_bottom = 224.0
+layout_mode = 0
+offset_left = 14.0
+offset_top = 205.0
+offset_right = 267.0
+offset_bottom = 428.0
 
 [node name="JoinCreateMatch" type="Button" parent="Panel3"]
 layout_mode = 0
@@ -75,10 +184,11 @@ offset_bottom = 215.0
 text = "Start Game"
 
 [node name="Panel4" type="Panel" parent="."]
-offset_left = 259.0
-offset_top = 2.0
-offset_right = 483.0
-offset_bottom = 166.0
+layout_mode = 0
+offset_left = 689.0
+offset_top = 6.0
+offset_right = 913.0
+offset_bottom = 170.0
 
 [node name="BlockFriends" type="Button" parent="Panel4"]
 layout_mode = 0
@@ -146,10 +256,11 @@ bbcode_enabled = true
 text = "[center][b]Friends"
 
 [node name="Panel5" type="Panel" parent="."]
-offset_left = -4.0
-offset_top = 229.0
-offset_right = 220.0
-offset_bottom = 393.0
+layout_mode = 0
+offset_left = 683.0
+offset_top = 239.0
+offset_right = 907.0
+offset_bottom = 403.0
 
 [node name="CloseGroup" type="Button" parent="Panel5"]
 layout_mode = 0
@@ -217,10 +328,11 @@ bbcode_enabled = true
 text = "[center][b]Group Memebers"
 
 [node name="Panel6" type="Panel" parent="."]
-offset_left = 1161.0
-offset_top = -8.0
-offset_right = 1560.0
-offset_bottom = 400.0
+layout_mode = 0
+offset_left = 2.0
+offset_top = 680.0
+offset_right = 401.0
+offset_bottom = 1088.0
 
 [node name="Label" type="Label" parent="Panel6"]
 layout_mode = 0
@@ -373,10 +485,11 @@ offset_bottom = 194.0
 text = "Leave Group"
 
 [node name="Panel7" type="Panel" parent="."]
-offset_left = 500.0
-offset_top = 246.0
-offset_right = 709.0
-offset_bottom = 504.0
+layout_mode = 0
+offset_left = 270.0
+offset_top = 398.0
+offset_right = 479.0
+offset_bottom = 656.0
 
 [node name="JoinGroupChatRoom" type="Button" parent="Panel7"]
 layout_mode = 0
@@ -458,9 +571,11 @@ offset_bottom = 205.0
 text = "Join Direct Chat"
 
 [node name="Panel8" type="Panel" parent="."]
-offset_left = 742.0
-offset_right = 916.0
-offset_bottom = 80.0
+layout_mode = 0
+offset_left = 1169.0
+offset_top = 15.0
+offset_right = 1362.0
+offset_bottom = 141.0
 
 [node name="CreateParty" type="Button" parent="Panel8"]
 layout_mode = 0
@@ -472,10 +587,9 @@ text = "Create Party"
 
 [node name="Panel" type="Panel" parent="Panel8"]
 layout_mode = 0
-offset_left = 176.0
-offset_top = -2.0
-offset_right = 396.0
-offset_bottom = 148.0
+offset_left = 202.0
+offset_right = 422.0
+offset_bottom = 150.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel8/Panel"]
 layout_mode = 1
@@ -491,10 +605,10 @@ grow_vertical = 2
 
 [node name="Panel2" type="Panel" parent="Panel8"]
 layout_mode = 0
-offset_left = -2.0
-offset_top = 87.0
-offset_right = 174.0
-offset_bottom = 193.0
+offset_left = -6.0
+offset_top = 139.0
+offset_right = 178.0
+offset_bottom = 257.0
 
 [node name="Label" type="Label" parent="Panel8/Panel2"]
 layout_mode = 0
@@ -520,4 +634,162 @@ offset_right = 170.0
 offset_bottom = 104.0
 text = "Yes"
 
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[node name="TradeSystem" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1163.0
+offset_top = 286.0
+offset_right = 1951.0
+offset_bottom = 716.0
+
+[node name="AddItemToInventory" type="Button" parent="TradeSystem"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 27.0
+offset_right = 176.0
+offset_bottom = 85.0
+text = "Ping RPC"
+
+[node name="GetInventory" type="Button" parent="TradeSystem"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 99.0
+offset_right = 176.0
+offset_bottom = 157.0
+text = "Get Inventory"
+
+[node name="SendTradeOffer" type="Button" parent="TradeSystem"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 163.0
+offset_right = 176.0
+offset_bottom = 221.0
+text = "Send Trade Offer"
+
+[node name="GetTradeOffers" type="Button" parent="TradeSystem"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 228.0
+offset_right = 176.0
+offset_bottom = 286.0
+text = "Get Trade Offers"
+
+[node name="AcceptTradeOffer2" type="Button" parent="TradeSystem"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 352.0
+offset_right = 183.0
+offset_bottom = 410.0
+text = "Accept Trade Offer"
+
+[node name="CancelTradeOffer" type="Button" parent="TradeSystem"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 291.0
+offset_right = 176.0
+offset_bottom = 349.0
+text = "Cancel Trade Offer"
+
+[node name="Panel" type="Panel" parent="TradeSystem"]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 20.0
+offset_right = 774.0
+offset_bottom = 356.0
+
+[node name="Panel" type="Panel" parent="TradeSystem/Panel"]
+layout_mode = 0
+offset_right = 292.0
+offset_bottom = 155.0
+
+[node name="Panel2" type="Panel" parent="TradeSystem/Panel"]
+layout_mode = 0
+offset_top = 178.0
+offset_right = 292.0
+offset_bottom = 333.0
+
+[node name="FriendNameLabel" type="Label" parent="TradeSystem/Panel"]
+layout_mode = 0
+offset_top = 155.0
+offset_right = 94.0
+offset_bottom = 178.0
+text = "Other User: "
+
+[node name="Label2" type="Label" parent="TradeSystem/Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -22.0
+offset_right = 98.0
+offset_bottom = 1.0
+text = "My Inventory"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TradeSystem/Panel"]
+layout_mode = 0
+offset_right = 293.0
+offset_bottom = 153.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TradeSystem/Panel"]
+layout_mode = 0
+offset_top = 183.0
+offset_right = 293.0
+offset_bottom = 336.0
+
+[node name="TradeOffers" type="Panel" parent="TradeSystem"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 21.0
+offset_right = 473.0
+offset_bottom = 349.0
+
+[node name="Label" type="Label" parent="TradeSystem/TradeOffers"]
+layout_mode = 0
+offset_top = -21.0
+offset_right = 40.0
+offset_bottom = 2.0
+text = "Trade Offers"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TradeSystem/TradeOffers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="Panel2/LoginButton" to="." method="_on_login_button_button_down"]
+[connection signal="button_down" from="Data Pannel/StoreData" to="." method="_on_store_data_button_down"]
+[connection signal="button_down" from="Data Pannel/GetData" to="." method="_on_get_data_button_down"]
+[connection signal="button_down" from="Data Pannel/ListData" to="." method="_on_list_data_button_down"]
+[connection signal="button_down" from="Panel3/JoinCreateMatch" to="." method="_on_join_create_match_button_down"]
+[connection signal="button_down" from="Panel3/Ping" to="." method="_on_ping_button_down"]
+[connection signal="button_down" from="Panel3/Matchmaking" to="." method="_on_matchmaking_button_down"]
+[connection signal="button_down" from="Panel3/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Panel4/BlockFriends" to="." method="_on_block_friends_button_down"]
+[connection signal="button_down" from="Panel4/GetFriends" to="." method="_on_get_friends_button_down"]
+[connection signal="button_down" from="Panel4/AddFriend" to="." method="_on_add_friend_button_down"]
+[connection signal="button_down" from="Panel4/AddFriend/RemoveFriend" to="." method="_on_remove_friend_button_down"]
+[connection signal="button_down" from="Panel5/GetGroupMemebers" to="." method="_on_get_group_memebers_button_down"]
+[connection signal="button_down" from="Panel5/CreateGroup" to="." method="_on_create_group_button_down"]
+[connection signal="button_down" from="Panel6/CreateGroup" to="." method="_on_create_group_button_down"]
+[connection signal="button_down" from="Panel6/AddUserToGroup" to="." method="_on_add_user_to_group_button_down"]
+[connection signal="button_down" from="Panel6/AddUserToGroup2" to="." method="_on_add_user_to_group_2_button_down"]
+[connection signal="button_down" from="Panel6/List Groups" to="." method="_on_list_groups_button_down"]
+[connection signal="toggled" from="Panel6/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="button_down" from="Panel6/PromoteUser" to="." method="_on_promote_user_button_down"]
+[connection signal="button_down" from="Panel6/KickUser" to="." method="_on_kick_user_button_down"]
+[connection signal="button_down" from="Panel6/DemoteUser" to="." method="_on_demote_user_button_down"]
+[connection signal="button_down" from="Panel6/BanUser" to="." method="_on_ban_user_button_down"]
+[connection signal="button_down" from="Panel6/LeaveGroup" to="." method="_on_leave_group_button_down"]
+[connection signal="button_down" from="Panel6/DeleteGroup" to="." method="_on_delete_group_button_down"]
+[connection signal="button_down" from="Panel7/JoinGroupChatRoom" to="." method="_on_join_group_chat_room_button_down"]
+[connection signal="button_down" from="Panel7/JoinChatRoom" to="." method="_on_join_chat_room_button_down"]
+[connection signal="button_down" from="Panel7/Chat/SubmitChat" to="." method="_on_submit_chat_button_down"]
+[connection signal="button_down" from="Panel7/JoinDirectChat" to="." method="_on_join_direct_chat_button_down"]
+[connection signal="button_down" from="Panel8/CreateParty" to="." method="_on_create_party_button_down"]
+[connection signal="button_down" from="Panel8/Panel2/JoinPartyNo" to="." method="_on_join_party_no_button_down"]
+[connection signal="button_down" from="Panel8/Panel2/JoinPartyYes" to="." method="_on_join_party_yes_button_down"]
+[connection signal="button_down" from="TradeSystem/AddItemToInventory" to="." method="_on_ping_rpc_button_down"]
+[connection signal="button_down" from="TradeSystem/GetInventory" to="." method="_on_get_inventory_button_down"]
+[connection signal="button_down" from="TradeSystem/SendTradeOffer" to="." method="_on_send_trade_offer_button_down"]
+[connection signal="button_down" from="TradeSystem/GetTradeOffers" to="." method="_on_get_trade_offers_button_down"]
+[connection signal="button_down" from="TradeSystem/AcceptTradeOffer2" to="." method="_on_accept_trade_offer_button_down"]
+[connection signal="button_down" from="TradeSystem/CancelTradeOffer" to="." method="_on_cancel_trade_offer_button_down"]
