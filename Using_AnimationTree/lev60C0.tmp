@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://u6g47xc30utq"]
+
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/Free Pixel Art Forest/Preview/Background.png" id="1_y6k81"]
+[ext_resource type="PackedScene" uid="uid://bgmqqhxg50eoq" path="res://scenes/player.tscn" id="2_5yy4i"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tipgj"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lf4ac"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(989, 289)
+scale = Vector2(0.997227, 1)
+texture = ExtResource("1_y6k81")
+region_enabled = true
+region_rect = Rect2(0, 215.896, 1983.62, 577.104)
+
+[node name="Player" parent="." instance=ExtResource("2_5yy4i")]
+position = Vector2(943, 450)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(943, 518)
+shape = SubResource("WorldBoundaryShape2D_tipgj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 250)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_lf4ac")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1980, 250)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_lf4ac")

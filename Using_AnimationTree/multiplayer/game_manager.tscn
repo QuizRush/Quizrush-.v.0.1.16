@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgm0vh8ywwd1p"]
+
+[ext_resource type="Script" path="res://multiplayer/game_manager.gd" id="1_jcu53"]
+[ext_resource type="PackedScene" uid="uid://btpwvceblbai2" path="res://Levels/level.tscn" id="2_16usy"]
+[ext_resource type="PackedScene" uid="uid://bkvduy6ptcw7t" path="res://multiplayer/test_scene.tscn" id="2_g0xpo"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_jcu53")
+multiplayerScene = ExtResource("2_16usy")
+
+[node name="UI" parent="." instance=ExtResource("2_g0xpo")]
+offset_left = -1.0
+offset_top = 0.0
+offset_right = 1150.0
+offset_bottom = 646.0

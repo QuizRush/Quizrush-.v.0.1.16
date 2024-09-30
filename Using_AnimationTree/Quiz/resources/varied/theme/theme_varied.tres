@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="QuizTheme" load_steps=2 format=3 uid="uid://cx8gt0v2bdedc"]
+
+[ext_resource type="Script" path="res://Quiz/Scripts/resources/theme.gd" id="1_s4hpv"]
+
+[resource]
+script = ExtResource("1_s4hpv")
+theme = Array[Resource("res://Quiz/Scripts/resources/question.gd")]([null, null, null, null])

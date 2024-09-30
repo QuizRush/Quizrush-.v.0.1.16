@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://btpwvceblbai2"]
+
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/Free Pixel Art Forest/Preview/Background.png" id="1_icckb"]
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_sanel"]
+[ext_resource type="PackedScene" uid="uid://d0hr74xcha3ft" path="res://Entities/Player/player.tscn" id="2_w5err"]
+[ext_resource type="Script" path="res://Levels/mode_switcher.gd" id="5_ahu8o"]
+[ext_resource type="Script" path="res://Levels/Battle.gd" id="6_82wk4"]
+[ext_resource type="Script" path="res://Levels/Quiz.gd" id="7_ffxdn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1n5jn"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_sanel")
+PlayerScene = ExtResource("2_w5err")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(988, 326)
+texture = ExtResource("1_icckb")
+region_enabled = true
+region_rect = Rect2(0, 137.571, 1980, 655.429)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1030, 593)
+shape = SubResource("WorldBoundaryShape2D_1n5jn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 250)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_1n5jn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1980, 250)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_1n5jn")
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Mode_switcher" type="Node" parent="." node_paths=PackedStringArray("current_mode")]
+script = ExtResource("5_ahu8o")
+current_mode = NodePath("Quiz")
+
+[node name="Battle" type="Node" parent="Mode_switcher"]
+script = ExtResource("6_82wk4")
+
+[node name="Quiz" type="Node" parent="Mode_switcher"]
+script = ExtResource("7_ffxdn")
+
+[node name="SpawnPointForPlayer" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPointForPlayer"]
+position = Vector2(632, 556)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPointForPlayer"]
+position = Vector2(903, 556)
