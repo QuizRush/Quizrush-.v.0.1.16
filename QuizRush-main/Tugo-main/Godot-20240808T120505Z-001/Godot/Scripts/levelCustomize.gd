@@ -137,12 +137,12 @@ func update_review():
 	$Panel5/Info.texture = info[toggledInfo]
 	
 func _on_use_db_pressed():
-	get_tree().change_scene_to_file("res://qShow.tscn")
-	$Panel2/DB.disabled = false
+	get_tree().change_scene_to_file("res://Scenes/qShow.tscn")
+	#$Panel2/DB.disabled = false
 	
 func _on_custom_q_pressed():
 	get_tree().change_scene_to_file("res://Scenes/control.tscn")
-	$Panel2/DB2.disabled = false
+	#$Panel2/DB2.disabled = false
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

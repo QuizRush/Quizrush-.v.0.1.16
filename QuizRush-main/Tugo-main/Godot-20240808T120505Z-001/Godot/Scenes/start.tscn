@@ -913,14 +913,14 @@ position = Vector2(553, 481)
 scale = Vector2(1.17361, 1.23125)
 sprite_frames = SubResource("SpriteFrames_ad866")
 autoplay = "default"
-frame_progress = 0.339529
+frame_progress = 0.532092
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(457, 499)
 scale = Vector2(1.23611, 1.23438)
 sprite_frames = SubResource("SpriteFrames_x10mp")
 autoplay = "default"
-frame_progress = 0.33395
+frame_progress = 0.0376212
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
 position = Vector2(210, 480)
@@ -934,7 +934,7 @@ position = Vector2(543, 382)
 scale = Vector2(1.46875, 1.65625)
 sprite_frames = SubResource("SpriteFrames_ageqr")
 autoplay = "default"
-frame_progress = 0.948868
+frame_progress = 0.311886
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
 position = Vector2(890, 517)
@@ -963,7 +963,7 @@ position = Vector2(939.375, 530.75)
 scale = Vector2(0.697265, 0.667969)
 sprite_frames = SubResource("SpriteFrames_vq1ee")
 autoplay = "default"
-frame_progress = 0.685457
+frame_progress = 0.366957
 flip_h = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -991,4 +991,4 @@ position = Vector2(612, 142)
 scale = Vector2(3.7, 2.72)
 sprite_frames = SubResource("SpriteFrames_imeoy")
 autoplay = "default"
-frame_progress = 0.436581
+frame_progress = 0.288415
