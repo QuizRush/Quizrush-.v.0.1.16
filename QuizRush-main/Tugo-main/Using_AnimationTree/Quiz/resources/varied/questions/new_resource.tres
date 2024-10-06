@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="QuizRush" load_steps=2 format=3 uid="uid://c42m4ea83r1bf"]
-
-[ext_resource type="Script" path="res://Quiz/Scripts/resources/question.gd" id="1_038qv"]
-
-[resource]
-script = ExtResource("1_038qv")
