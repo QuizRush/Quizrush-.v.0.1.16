@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://2ec0nsyuvj3x"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_52cwc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohgcx"]
+animations = []
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(44, -17)
+script = ExtResource("1_52cwc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ohgcx")
+animation = &""
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-32, 25)
+zoom = Vector2(2, 2)
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
