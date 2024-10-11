@@ -1,7 +1,7 @@
 [gd_scene load_steps=155 format=3 uid="uid://dme701bv4si57"]
 
 [ext_resource type="Script" path="res://Scripts/start.gd" id="1_qimpp"]
-[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/Free Pixel Art Forest/Preview/Background.png" id="1_s2klr"]
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/map background/Free Pixel Art Forest/Preview/Background.png" id="1_s2klr"]
 [ext_resource type="FontFile" uid="uid://b304kctevhwix" path="res://font/PixelifySans-VariableFont_wght.ttf" id="2_q12gm"]
 [ext_resource type="Texture2D" uid="uid://oh4ojeifm416" path="res://assets/sprite_sheet/fire_guy_sheet.png" id="4_hsglj"]
 [ext_resource type="Texture2D" uid="uid://dfi4gwgkawh07" path="res://assets/sprite_sheet/demon_slime.png" id="5_3n7pi"]

@@ -4,7 +4,7 @@ extends Node2D
 @onready var pause_menu = $GUI
 var enemy_scene = preload("res://Entities/Enemies/orc_enemy_1/enemy.tscn")
 @onready var character := $Player
-
+@onready var timer = $Timer
 var game_paused = false
 var enemy_numbers = 6
 func _ready():
@@ -17,7 +17,11 @@ func _ready():
 
 
 func _process(delta):
-	pass
+	var remaining_time = timer.time_left
+	
+	$UI_manager/TextureProgressBar.value = remaining_time*20
+	if($UI_manager/TextureProgressBar.value == 0):
+		$UI_manager/Label2.visible = false
 func camera_set():
 	character.position = Vector2(2632, 482)
 	cameraMan.limit_right = 3200
