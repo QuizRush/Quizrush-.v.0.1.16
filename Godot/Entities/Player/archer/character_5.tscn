@@ -1,13 +1,14 @@
-[gd_scene load_steps=54 format=3 uid="uid://dbh5v351hg1a2"]
+[gd_scene load_steps=56 format=3 uid="uid://dbh5v351hg1a2"]
 
 [ext_resource type="PackedScene" uid="uid://2ec0nsyuvj3x" path="res://Entities/Player/realPlayer/player_udamshil.tscn" id="1_wmt31"]
 [ext_resource type="Script" path="res://Entities/Player/archer/character_5.gd" id="2_wrnu5"]
-[ext_resource type="Texture2D" uid="uid://d1gqxo7avqlyb" path="res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Attack01.png" id="3_regpe"]
-[ext_resource type="Texture2D" uid="uid://bl4wsjratjknn" path="res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Attack02.png" id="4_la7lg"]
-[ext_resource type="Texture2D" uid="uid://pd3wgm7b2yyr" path="res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Hurt.png" id="5_1crno"]
-[ext_resource type="Texture2D" uid="uid://cxbhi1q64mump" path="res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Death.png" id="6_avv0w"]
-[ext_resource type="Texture2D" uid="uid://qg15ftfps0ww" path="res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Idle.png" id="7_qyjxm"]
-[ext_resource type="Texture2D" uid="uid://buqyxmokexsrg" path="res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Walk.png" id="8_7jd5d"]
+[ext_resource type="Texture2D" uid="uid://d1gqxo7avqlyb" path="res://Scripts/art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Attack01.png" id="3_regpe"]
+[ext_resource type="Texture2D" uid="uid://bl4wsjratjknn" path="res://Scripts/art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Attack02.png" id="4_la7lg"]
+[ext_resource type="Texture2D" uid="uid://pd3wgm7b2yyr" path="res://Scripts/art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Hurt.png" id="5_1crno"]
+[ext_resource type="Texture2D" uid="uid://cxbhi1q64mump" path="res://Scripts/art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Death.png" id="6_avv0w"]
+[ext_resource type="Texture2D" uid="uid://qg15ftfps0ww" path="res://Scripts/art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Idle.png" id="7_qyjxm"]
+[ext_resource type="Texture2D" uid="uid://buqyxmokexsrg" path="res://Scripts/art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Walk.png" id="8_7jd5d"]
+[ext_resource type="PackedScene" uid="uid://5gqoenu0502a" path="res://Scenes/health_bar.tscn" id="9_n8gyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8r1g"]
 atlas = ExtResource("3_regpe")
@@ -346,24 +347,44 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wufes"]
 height = 34.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ug5bh"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("HealthBar:fill_mode")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="Player" instance=ExtResource("1_wmt31")]
 position = Vector2(42, -16)
 script = ExtResource("2_wrnu5")
 shootSpeed = 1.0
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="HealthBar" parent="." index="0" instance=ExtResource("9_n8gyn")]
+offset_left = -63.0
+offset_top = -8.0
+offset_right = -24.0
+offset_bottom = -5.0
+
+[node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-44, 17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_b50px")
-animation = &"attack_2"
+animation = &"damaged"
 autoplay = "idle"
 
-[node name="shootSpeedTimer" type="Timer" parent="." index="2"]
+[node name="shootSpeedTimer" type="Timer" parent="." index="3"]
 one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+[node name="Camera2D" parent="." index="4"]
+position = Vector2(-39, -98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
 position = Vector2(-43, 14)
 shape = SubResource("CapsuleShape2D_wufes")
 
-[node name="Marker2D" type="Marker2D" parent="." index="5"]
+[node name="Marker2D" type="Marker2D" parent="." index="6"]
 position = Vector2(-44, 17)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="7"]
+replication_config = SubResource("SceneReplicationConfig_ug5bh")

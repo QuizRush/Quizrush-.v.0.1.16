@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var healthbar = $"../UI_manager/HealthBar"
+@onready var healthbar = $HealthBar
 var speed = 250.0
 const jump_power = -300.0
 var jump_count = 0
@@ -24,23 +24,52 @@ signal facing_direction_changed(facing_right:bool)
 
 func _ready():
 	healthbar.init_health(health)
+	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())
 
+#func _physics_process(delta):
+	#if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
+		#var direction = Input.get_axis("left", "right")
+		#det_dir(direction)
+		#gravity_and_jump(delta)
+		#attack()
+		#player_controller(direction)
+#
+		#move_and_slide()
 func _physics_process(delta):
-	var direction = Input.get_axis("left", "right")
-	det_dir(direction)
-	gravity_and_jump(delta)
-	attack()
-	player_controller(direction)
+	if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
+		var direction = Input.get_axis("left", "right")
+		det_dir(direction)
+		gravity_and_jump(delta)
+		attack()
+		player_controller(direction)
+		move_and_slide()
 
-	move_and_slide()
+		# Sync position with other players
+		rpc("sync_position", position)  # Send position to the server for others to update
+
+
+
+@rpc
+func sync_position(pos: Vector2):
+	position = pos
+
+#func det_dir(dir):
+	#if dir == 1:
+		#animated_sprite.flip_h = false
+	#if dir == -1:
+		#animated_sprite.flip_h = true
+		#
+	#emit_signal("facing_direction_changed", !animated_sprite.flip_h)
 	
 func det_dir(dir):
 	if dir == 1:
 		animated_sprite.flip_h = false
 	if dir == -1:
 		animated_sprite.flip_h = true
-		
 	emit_signal("facing_direction_changed", !animated_sprite.flip_h)
+	# Send the current animation and flip state to the server
+	rpc("sync_animation_and_flip", animated_sprite.animation, animated_sprite.flip_h, position)	
+	
 		
 func gravity_and_jump(delta):
 	if not is_on_floor():
@@ -93,14 +122,30 @@ func attack():
 
 		anyMovement = false
 
+#func wait_for_animation(anim: String, duration: float) -> void:
+	#animated_sprite.play(anim)
+	#await get_tree().create_timer(duration).timeout
 func wait_for_animation(anim: String, duration: float) -> void:
 	animated_sprite.play(anim)
+	rpc("sync_animation_and_flip", anim, animated_sprite.flip_h, position)  # Sync animation
 	await get_tree().create_timer(duration).timeout
 
+#func send_damage(damage):
+	#if enemy_inattack_range and enemy:
+		#var knockback_direction = (enemy.position - position).normalized() * -1
+		#enemy.take_damage(damage)
 func send_damage(damage):
 	if enemy_inattack_range and enemy:
 		var knockback_direction = (enemy.position - position).normalized() * -1
 		enemy.take_damage(damage)
+		# Send current animation and facing direction to server
+		rpc("sync_animation_and_flip", animated_sprite.animation, animated_sprite.flip_h, position)
+@rpc
+func sync_animation_and_flip(anim: String, flip_h: bool, pos: Vector2):
+	animated_sprite.play(anim)
+	animated_sprite.flip_h = flip_h
+	position = pos  # Update position if necessary
+
 
 		
 func player():

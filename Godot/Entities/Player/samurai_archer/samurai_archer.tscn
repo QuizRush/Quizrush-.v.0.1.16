@@ -725,6 +725,7 @@ one_shot = true
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("20_brr7v")
+health = null
 
 [node name="PlayerToken" type="Node" parent="."]
 script = ExtResource("21_dm4k2")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=63 format=3 uid="uid://135cro1dhcwm"]
 
 [ext_resource type="Script" path="res://Scripts/levelCustomize.gd" id="1_ntia7"]
-[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/Free Pixel Art Forest/Preview/Background.png" id="2_hvrnc"]
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/map background/Free Pixel Art Forest/Preview/Background.png" id="2_hvrnc"]
 [ext_resource type="Texture2D" uid="uid://cj45b0imwu6o2" path="res://levels/maps/gothic-castle-preview.png" id="3_sm5p7"]
 [ext_resource type="Texture2D" uid="uid://v0cv6ckg1nwv" path="res://Vid/arrow.png" id="4_ivtxi"]
 [ext_resource type="Texture2D" uid="uid://bnlf5d5ya5m37" path="res://levels/characters/demon-idle.png" id="5_t44sq"]

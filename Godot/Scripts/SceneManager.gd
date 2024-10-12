@@ -16,9 +16,8 @@ func _ready():
 		instancedPlayer.global_position = spawnpoints[index].global_position
 		
 		index += 1
-	pass # Replace with function body.
+	pass 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

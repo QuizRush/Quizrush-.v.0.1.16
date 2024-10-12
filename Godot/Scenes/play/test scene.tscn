@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://cfhijka6t0tcb"]
 
 [ext_resource type="Script" path="res://Scripts/Client.gd" id="1_mtcsr"]
-[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/Free Pixel Art Forest/Preview/Background.png" id="2_xulrb"]
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/map background/Free Pixel Art Forest/Preview/Background.png" id="2_xulrb"]
 [ext_resource type="FontFile" uid="uid://b304kctevhwix" path="res://font/PixelifySans-VariableFont_wght.ttf" id="4_s1bpf"]
 [ext_resource type="Texture2D" uid="uid://wbiclb6y7bix" path="res://Werewolf/Werewolf/Werewolf11.png" id="5_beul1"]
 [ext_resource type="Texture2D" uid="uid://x6alr1is4706" path="res://Knight/Knight-Attack33.png" id="6_2biej"]
