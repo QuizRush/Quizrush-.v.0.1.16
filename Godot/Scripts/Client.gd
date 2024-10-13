@@ -146,6 +146,7 @@ func _process(delta):
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://Scenes/play/zavsariin.tscn")
 	
+		
 
 func setupMultiplayerBridge():
 	multiplayerBridge = NakamaMultiplayerBridge.new(socket)
@@ -157,25 +158,29 @@ func setupMultiplayerBridge():
 	
 func onPeerConnected(id):
 	print("Peer connected id is: " + str(id))
-
-	# Add connected player info to the Players dictionary if not already present
+	var local_id = multiplayer.get_unique_id()
 	if !Players.has(id):
 		Players[id] = {
-			"name" : id,
-			"ready" : 0
+			"name": str(id),
+			"ready": 0
 		}
-	if !Players.has(multiplayer.get_unique_id()):
-		Players[multiplayer.get_unique_id()]= {
-			"name" : multiplayer.get_unique_id(),
-			"ready" : 0
+	if !Players.has(local_id):
+		Players[local_id] = {
+			"name": str(local_id),
+			"ready": 0
 		}
-		
-	#if id == multiplayer.get_unique_id():
-		#opponent_name_label.text = "Opponent: Player " + str(id)
-		#opponent_ready_label.text = "Not Ready"
-	#else:
-		#player_name_label.text = "You: Player " + str(id)
-		#player_ready_label.text = "Not Ready"
+	if id == local_id:
+		$Panel2/Panel2/Label.text = "You: " + Players[id]["name"]
+		print(Players[id]["name"])
+		$Panel2/Panel2/Label2.text = "Not Ready"
+	else:
+		if Players.has(id):  # Ensure the player's name exists before accessing it
+			$Panel2/Panel3/Label.text = "Opponent: " + Players[id]["name"]
+			print(Players[id]["name"])
+			$Panel2/Panel3/Label2.text = "Not Ready"
+		else:
+			print("Player name not found for ID: " + str(id))
+
 
 	
 func onPeerDisconnected(id):
@@ -230,7 +235,7 @@ func _on_list_data_button_down():
 	var dataList = await client.list_storage_objects_async(session, "saves",session.user_id, 5)
 	for i in dataList.objects:
 		print(i)
-	pass # Replace with function body.
+	pass # Replace with function body.matchmakin
 
 
 func _on_join_create_match_button_down():
@@ -250,8 +255,8 @@ func _on_join_create_match_button_down():
 func sendData(message):
 	print(message)
 
-
 func _on_matchmaking_button_down():
+	$Panel2/Panel2/Label2.text = "Ready"
 	var query = "+properties.region:US +properties.rank:>=4 +properties.rank:<=10"
 	var stringP = {"region" : "US"}
 	var numberP = { "rank": 6}
@@ -328,13 +333,14 @@ func _on_get_group_memebers_button_down():
 
 func _on_button_button_down():
 	Ready.rpc(multiplayer.get_unique_id())
-	pass # Replace with function body.
 	
-
+	pass # Replace with function body.
 var currentID 
 @rpc("any_peer", "call_local")
 func Ready(id):
 	Players[id].ready = 1
+	
+	$Panel2/Panel3/Label2.text = "Ready"
 	if multiplayer.is_server():
 		var readyPlayers = 0
 		for i in Players:

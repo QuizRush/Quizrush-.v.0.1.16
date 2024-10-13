@@ -1087,7 +1087,7 @@ scale = Vector2(5.1, 5.6793)
 sprite_frames = SubResource("SpriteFrames_x3mcg")
 animation = &"0"
 autoplay = "0"
-frame_progress = 0.191556
+frame_progress = 0.185522
 
 [node name="info1" type="Label" parent="Panel8/char"]
 layout_mode = 0
