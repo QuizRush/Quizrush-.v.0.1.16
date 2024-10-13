@@ -38,27 +38,23 @@ var char_pros = [
 ]
 
 var map_images = [
-	preload("res://Levels/maps/gothic-castle-preview.png"),
-	preload("res://Levels/maps/mist-forest-background-previewx2.png"),
-	preload("res://Levels/maps/night-town-background-previewx2.png"),
-	preload("res://Levels/maps/preview-day-platformer.png"),
-	preload("res://Levels/maps/preview-sci-fi-environment-tileset.png")
+	preload("res://multiplayerLevels/Screenshot 2024-10-13 081040.png"),
+	preload("res://multiplayerLevels/Screenshot 2024-10-13 081319.png"),
+	preload("res://multiplayerLevels/Background.png")
 ]
 
 var map_infos = [
-	"gothic-castle",
-	"mist-forest",
-	"night-town",
-	"platformer",
-	"sci-fi-environment"
+	"Negen ger",
+	"Baigaliin saihand hunii saihantai",
+	"Mist forest"
 ]
 
 var char_infos = [
-	"1",
-	"2",
-	"3",
-	"4",
-	"5"
+	"Archer",
+	"Armored Axeman",
+	"Greatsword Skeleton",
+	"Swordsman",
+	"Soldier"
 ]
 
 var char_infos1 = [
@@ -351,6 +347,25 @@ func Ready(id):
 
 @rpc("any_peer", "call_local")
 func StartGame():
+	#Map info
+	selected_map_scene = map_infos[current_map_index]
+	#Character
+	selected_char = char_infos[current_char_index]
+	
+	selected_mode_sm = "MultiPlayer"
+	if($Panel8/mode/PvP.button_pressed):
+		selected_mode_ps = "PvP"
+	else:
+		selected_mode_ps = "Survival"
+			
+	MultiplayerNakamaManager.level_custom_data["selected_map"] = selected_map_scene
+	MultiplayerNakamaManager.level_custom_data["selected_char"] = selected_char
+	MultiplayerNakamaManager.level_custom_data["selected_mode"] = {
+		"Multiplayer": selected_mode_sm,
+		"PvpSurvival": selected_mode_ps
+	}
+	MultiplayerNakamaManager.level_custom_data["round"] = $Panel8/mode/Panel9/LineEdit.text
+	MultiplayerNakamaManager.level_custom_data["question_num"] = $Panel8/mode/Panel9/LineEdit2.text
 	OnStartGame.emit()
 	hide()
 	pass
@@ -499,6 +514,8 @@ func _on_previous_button_pressed():
 	update_map_preview()
 
 func update_map_preview():
+	print("sda")
+	print(map_infos[current_map_index])
 	$Panel8/map/MapPreview.texture = map_images[current_map_index]
 	$Panel8/map/info.text = map_infos[current_map_index]
 	
@@ -538,3 +555,17 @@ func _on_button_3_pressed():
 	$Panel8/map.visible = false
 	$Panel8/char.visible = false
 	$Panel8/mode.visible = true
+
+
+func _on_use_db_pressed():
+	$qshow.visible = true
+	if($Panel8/mode/Panel9/DB.button_pressed == false):
+		$Panel8/mode/Panel9/DB.button_pressed = true
+	if($Panel8/mode/Panel9/DB2.button_pressed == true):
+		$Panel8/mode/Panel9/DB2.button_pressed=false
+	$Panel8/mode/Panel9/DB2.disabled = true
+	$Panel8/mode/Panel9/CustomQ.disabled = true
+
+
+func _on_custom_q_pressed():
+	pass # Replace with function body.

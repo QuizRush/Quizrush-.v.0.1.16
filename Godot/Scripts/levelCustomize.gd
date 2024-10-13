@@ -82,10 +82,7 @@ func update_map_preview():
 	$Panel4/info.text = map_infos[current_map_index]
 
 func _on_button_pressed():
-	#Map
-	selected_map_scene = map_scenes[current_map_index]
-	#Character
-	selected_char = char_infos[current_char_index]
+
 	#Mode
 	if($Panel/Single.button_pressed):
 		selected_mode_sm = "SinglePlayer"
@@ -114,6 +111,10 @@ func _on_button_pressed():
 	#Question
 	q = $Panel6/LineEdit2.text
 	#Add question
+		#Map
+	selected_map_scene = map_scenes[current_map_index]
+	#Character
+	selected_char = char_infos[current_char_index]
 	NakamaManager.level_custom_data["selected_map"] = selected_map_scene
 	NakamaManager.level_custom_data["selected_char"] = selected_char
 	NakamaManager.level_custom_data["selected_mode"] = {

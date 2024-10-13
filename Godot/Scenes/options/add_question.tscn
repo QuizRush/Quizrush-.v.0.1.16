@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvisx50b4ko85"]
 
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="1_qned4"]
-[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/Free Pixel Art Forest/Preview/Background.png" id="2_2bkro"]
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://multiplayerLevels/Background.png" id="2_2bkro"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_qned4")
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.862745)
 position = Vector2(577, 201.25)
 scale = Vector2(1.24353, 1.12295)
 texture = ExtResource("2_2bkro")

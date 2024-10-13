@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var cameraMan = $Player/Camera2D
 @onready var pause_menu = $PauseMenu
-var enemy_scene = preload("res://Entities/Enemies/enemy.tscn")
+var enemy_scene = preload("res://Entities/Enemies/orc_enemy_1/enemy.tscn")
 @onready var character := $Player
 
 var game_paused = false

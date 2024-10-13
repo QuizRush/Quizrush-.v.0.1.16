@@ -79,7 +79,7 @@ func _on_done_pressed():
 		if child is CheckBox and child.is_pressed():
 			var question = child.get_meta("question") 
 			checked_questions.append(question)
-	NakamaManager.level_custom_data["questions"] = checked_questions
+	MultiplayerNakamaManager.level_custom_data["questions"] = checked_questions
 	$".".visible = false
 	
 func display_questions1(dataList1):

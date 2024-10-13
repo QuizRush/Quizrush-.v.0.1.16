@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b72l10ewoqn00"]
+[gd_scene load_steps=3 format=3 uid="uid://bko8hklmqfpio"]
 
-[ext_resource type="Script" path="res://Scripts/qShow.gd" id="1_02q3i"]
-[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://multiplayerLevels/Background.png" id="2_kfhlv"]
+[ext_resource type="Script" path="res://Scripts/MulitplayerQShow.gd" id="1_o73wo"]
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://multiplayerLevels/Background.png" id="2_bxyui"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,15 +10,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_02q3i")
+script = ExtResource("1_o73wo")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(577, 200.75)
 scale = Vector2(1.24353, 1.12421)
-texture = ExtResource("2_kfhlv")
+texture = ExtResource("2_bxyui")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
 offset_top = 48.0
 offset_right = 380.0
 offset_bottom = 583.0
@@ -55,7 +54,6 @@ offset_right = 64.0
 offset_bottom = 594.0
 
 [node name="Panel2" type="Panel" parent="."]
-layout_mode = 0
 offset_left = 387.0
 offset_top = 48.0
 offset_right = 767.0
@@ -89,7 +87,6 @@ offset_right = 49.0
 offset_bottom = 601.0
 
 [node name="Panel3" type="Panel" parent="."]
-layout_mode = 0
 offset_left = 773.0
 offset_top = 46.0
 offset_right = 1153.0
@@ -136,11 +133,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Done" type="Button" parent="."]
-layout_mode = 0
 offset_left = 987.0
 offset_top = 594.0
 offset_right = 1151.0
 offset_bottom = 645.0
 text = "Done"
-
-[connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

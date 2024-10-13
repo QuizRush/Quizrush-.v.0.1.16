@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w4uevn7obhnj"
-path="res://.godot/imported/Background.png-6f874b17b969177a13b15e8e7b5e6a8f.ctex"
+uid="uid://bkqyije2hoej1"
+path="res://.godot/imported/Screenshot 2024-10-13 081319.png-49924db012d2578f9c6813e53eb759f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/Free Pixel Art Forest/Preview/Background.png"
-dest_files=["res://.godot/imported/Background.png-6f874b17b969177a13b15e8e7b5e6a8f.ctex"]
+source_file="res://multiplayerLevels/Screenshot 2024-10-13 081319.png"
+dest_files=["res://.godot/imported/Screenshot 2024-10-13 081319.png-49924db012d2578f9c6813e53eb759f2.ctex"]
 
 [params]
 
