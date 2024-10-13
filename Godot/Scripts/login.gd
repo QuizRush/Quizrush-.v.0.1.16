@@ -8,7 +8,7 @@ var socket : NakamaSocket
 
 func _ready():
 	trans.play("fade_in")
-	client = Nakama.create_client("defaultkey", "127.0.0.1", 7350, "http")
+	client = Nakama.create_client("defaultkey", "163.43.113.37", 7350, "http")
 
 func updateUserInfo(username, displayname, avatarurl = "", language = "en", location = "us", timezone = "est"):
 	await client.update_account_async(session, username, displayname, avatarurl, language, location, timezone)

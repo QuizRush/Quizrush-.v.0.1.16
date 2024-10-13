@@ -10,11 +10,83 @@ var multiplayerBridge : NakamaMultiplayerBridge
 
 @onready var buttonGang = $host
 @onready var buttonGeng = $join
+@onready var buttonGing = $options
+
 
 @onready var player_name_label = $Panel2/Panel2/Label 
 @onready var player_ready_label = $Panel2/Panel2/Label2 
 @onready var opponent_name_label = $Panel2/Panel3/Label 
 @onready var opponent_ready_label = $Panel2/Panel3/Label2 
+
+
+
+var character_animations = [
+	preload("res://Levels/characters/demon-idle.png"),
+	preload("res://Levels/characters/fire-skull.png"),
+	preload("res://Levels/characters/gothic-hero-idle.png"),
+	preload("res://Levels/characters/Spritesheet.png"),
+	preload("res://Levels/characters/sunny-dragon-fly.png")
+]
+
+var char_pros = [
+	preload("res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Idle-pro.png"),
+	preload("res://art/character/All_characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Idle-pro.png"),
+	preload("res://art/character/All_characters/Characters(100x100)/Greatsword Skeleton/Greatsword Skeleton/Greatsword Skeleton-Idle-pro.png"),
+	preload("res://art/character/All_characters/Characters(100x100)/Swordsman/Swordsman/Swordsman-Idle-pro.png"),
+	preload("res://art/character/All_characters/Characters(100x100)/Soldier/Soldier/Soldier-Idle-pro.png")
+
+]
+
+var map_images = [
+	preload("res://Levels/maps/gothic-castle-preview.png"),
+	preload("res://Levels/maps/mist-forest-background-previewx2.png"),
+	preload("res://Levels/maps/night-town-background-previewx2.png"),
+	preload("res://Levels/maps/preview-day-platformer.png"),
+	preload("res://Levels/maps/preview-sci-fi-environment-tileset.png")
+]
+
+var map_infos = [
+	"gothic-castle",
+	"mist-forest",
+	"night-town",
+	"platformer",
+	"sci-fi-environment"
+]
+
+var char_infos = [
+	"1",
+	"2",
+	"3",
+	"4",
+	"5"
+]
+
+var char_infos1 = [
+	"Fanny shoots a cable in the target direction that pulls her to the first obstacle hit. She can cast this skill again within 2 seconds until her energy runs out. Each successive cast reduces the skill's energy cost by 2.
+Fanny automatically casts Tornado Strike Tornado Strike upon hitting an enemy mid-flight, as long as her energy is sufficient.",
+	"Hayabusa dashes in the target direction and releases four phantoms that travel in separate directions. The phantoms will remain at the end of their paths or attach themselves to the first enemy hero hit, dealing 130–180 (+30% Extra Physical Attack) Physical Damage and slowing them by 40% for 2 seconds. Hayabusa will immediately stop if he hits an enemy hero during the dash.
+Use Again: Hayabusa teleports to a phantom's location and reduces the cooldown of Ninjutsu: Phantom Shuriken Ninjutsu: Phantom Shuriken by 1 second. If the phantom is attached to an enemy hero, he also deals 130–180 (+30% Extra Physical Attack) Physical Damage to the enemy.",
+	"Freya strikes in the target direction, gaining a 60–260 (+70% Extra Physical Attack) shield while dealing 20–230 (+90% Extra Physical Attack) Physical Damage to enemies hit and slowing them by 30% for 0.5 seconds. Freya can cast this skill again withnin 3.5 seconds at the cost of 2 stacks of Sacred Orb.
+On the 3rd cast, Freya leaps into the air and smashes the area below, dealing 26–276 (+108% Extra Physical Attack) Physical Damage to enemies within range and knocking them airborne for 0.4 seconds.",
+	"Freya gains 6 stacks of Sacred Orb and enters the Valkyrie state, gaining a 600–900 (+180% Extra Physical Attack) shield and 30&Ndash;70 Physical Attack. Meanwhile, her Basic Attacks become ranged and deal splash damage. The Valkyrie state lasts for 10 seconds.",
+	"Chou strikes in the target direction, dealing 180 / 200 / 220 / 240 / 260 / 280 (+70% Total Physical Attack) Physical Damage to enemies hit. This skill can be casted 3 times before it goes on coldown. On the 3rd cast, Chou also knocks enemies hit airborne.
+Hitting an enemy hero with the 3rd cast resets the cooldown of Shunpo Shunpo."
+]
+
+
+
+var current_map_index = 0
+var current_char_index = 0
+var toggledInfo = 0
+var selected_mode_sm =""
+var selected_mode_be =""
+var selected_mode_ps =""
+var selected_t2 =""
+var map
+var selected_map_scene
+var selected_char
+var round
+var q
 
 var selectedGroup
 var currentChannel
@@ -49,8 +121,7 @@ func _ready():
 	
 	var account = await client.get_account_async(session)
 	#
-	$Panel/UserAccountText.text = account.user.username
-	$Panel/DisplayNameText.text = account.user.display_name
+	$Panel2/Panel2/Label.text = account.user.display_name
 	
 	setupMultiplayerBridge()
 	#subToFriendChannels()
@@ -377,17 +448,93 @@ func _on_join_direct_chat_button_down():
 	pass 
 
 func _on_host_pressed():
-	buttonGang.set_size(Vector2(57,57)) 
-	buttonGeng.set_size(Vector2(43,63)) 
-
+	buttonGang.set_size(Vector2(63,63))
+	buttonGang.position = (Vector2(310,70))
+	buttonGeng.position = (Vector2(380,90))
+	buttonGing.position = (Vector2(450,90))
+	buttonGeng.set_size(Vector2(63,43)) 
+	buttonGing.set_size(Vector2(63,43)) 
 	var style_box = StyleBoxFlat.new()
 	style_box.bg_color =Color(0.004, 0.063, 0.094)
 	$Panel3.add_theme_stylebox_override("panel", style_box)
-
+	$Panel3.visible = true
+	$Panel8.visible = false
 
 func _on_join_pressed():
-	buttonGang.set_size(Vector2(43,63)) 
-	buttonGeng.set_size(Vector2(57,57))
+	buttonGang.set_size(Vector2(63,43)) 
+	buttonGang.position = (Vector2(310,90))
+	buttonGeng.position = (Vector2(380,70))
+	buttonGing.position = (Vector2(450,90))
+	
+	buttonGeng.set_size(Vector2(63,63))
+	buttonGing.set_size(Vector2(63,43)) 
 	var style_box = StyleBoxFlat.new()
 	style_box.bg_color = Color(0.17, 0.155, 0.29)
 	$Panel3.add_theme_stylebox_override("panel", style_box)
+	$Panel3.visible = true
+	$Panel8.visible = false
+
+func _on_options_pressed():
+	buttonGang.set_size(Vector2(63,43)) 
+	buttonGeng.set_size(Vector2(63,43))
+	buttonGang.position = (Vector2(310,90))
+	buttonGeng.position = (Vector2(380,90))
+	buttonGing.position = (Vector2(450,70))
+	buttonGing.set_size(Vector2(63,63)) 
+	$Panel3.visible = false
+	$Panel8.visible = true
+	
+
+func _on_next_button_pressed():
+	current_map_index += 1
+	if current_map_index >= map_images.size():
+		current_map_index = 0  
+	update_map_preview()
+
+func _on_previous_button_pressed():
+	current_map_index -= 1
+	if current_map_index < 0:
+		current_map_index = map_images.size() - 1  
+	update_map_preview()
+
+func update_map_preview():
+	$Panel8/map/MapPreview.texture = map_images[current_map_index]
+	$Panel8/map/info.text = map_infos[current_map_index]
+	
+	
+func _on_previous_button_2_pressed():
+	current_char_index -= 1
+	if current_char_index < 0:
+		current_char_index = character_animations.size() - 1
+	update_character_preview()
+
+func update_character_preview():
+	$Panel8/char/CharacterPreview.play(str(current_char_index))
+	$Panel8/char/info1.text = char_infos[current_char_index]
+	$Panel8/char/Label.text = char_infos1[current_char_index]
+	$Panel2/Panel2/Werewolf11.texture = char_pros[current_char_index]
+	
+func _on_next_button_2_pressed():
+	current_char_index += 1
+	if current_char_index >= character_animations.size():
+		current_char_index = 0
+	update_character_preview()
+
+
+func _on_button_pressed():
+	$Panel8/map.visible = true
+	$Panel8/char.visible = false
+	$Panel8/mode.visible = false
+	
+
+
+func _on_button_2_pressed():
+	$Panel8/map.visible = false
+	$Panel8/char.visible = true
+	$Panel8/mode.visible = false
+
+
+func _on_button_3_pressed():
+	$Panel8/map.visible = false
+	$Panel8/char.visible = false
+	$Panel8/mode.visible = true

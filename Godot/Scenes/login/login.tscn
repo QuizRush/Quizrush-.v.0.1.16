@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c278k4ce3csi1"]
 
 [ext_resource type="Script" path="res://Scripts/login.gd" id="1_wly2q"]
-[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/Free Pixel Art Forest/Preview/Background.png" id="2_s2fdm"]
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/map background/Free Pixel Art Forest/Preview/Background.png" id="2_s2fdm"]
 [ext_resource type="Texture2D" uid="uid://cbrc826al8n75" path="res://Vid/7123025_logo_google_g_icon.png" id="3_ohoy0"]
 [ext_resource type="FontFile" uid="uid://b304kctevhwix" path="res://font/PixelifySans-VariableFont_wght.ttf" id="4_0r10e"]
 [ext_resource type="Texture2D" uid="uid://mhuowuwucxwo" path="res://Vid/3225194_app_facebook_logo_media_popular_icon.png" id="5_jga7u"]

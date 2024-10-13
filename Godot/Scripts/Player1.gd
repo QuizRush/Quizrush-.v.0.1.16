@@ -140,14 +140,13 @@ func send_damage(damage):
 		enemy.take_damage(damage)
 		# Send current animation and facing direction to server
 		rpc("sync_animation_and_flip", animated_sprite.animation, animated_sprite.flip_h, position)
+		
 @rpc
 func sync_animation_and_flip(anim: String, flip_h: bool, pos: Vector2):
 	animated_sprite.play(anim)
 	animated_sprite.flip_h = flip_h
 	position = pos  # Update position if necessary
 
-
-		
 func player():
 	pass
 

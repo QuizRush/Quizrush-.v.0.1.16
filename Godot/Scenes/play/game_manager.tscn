@@ -9,5 +9,9 @@ script = ExtResource("1_c0vjc")
 multiplayerScene = ExtResource("2_sjivl")
 
 [node name="UI" parent="." instance=ExtResource("2_ysfsu")]
+offset_left = 37.0
+offset_top = 4.0
+offset_right = 37.0
+offset_bottom = 4.0
 
 [node name="MultiplayerScene" type="Node2D" parent="."]

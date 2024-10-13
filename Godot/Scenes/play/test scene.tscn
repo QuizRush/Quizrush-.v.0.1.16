@@ -1,11 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfhijka6t0tcb"]
+[gd_scene load_steps=67 format=3 uid="uid://cfhijka6t0tcb"]
 
 [ext_resource type="Script" path="res://Scripts/Client.gd" id="1_mtcsr"]
 [ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/map background/Free Pixel Art Forest/Preview/Background.png" id="2_xulrb"]
 [ext_resource type="FontFile" uid="uid://b304kctevhwix" path="res://font/PixelifySans-VariableFont_wght.ttf" id="4_s1bpf"]
 [ext_resource type="Texture2D" uid="uid://wbiclb6y7bix" path="res://Werewolf/Werewolf/Werewolf11.png" id="5_beul1"]
-[ext_resource type="Texture2D" uid="uid://x6alr1is4706" path="res://Knight/Knight-Attack33.png" id="6_2biej"]
+[ext_resource type="Texture2D" uid="uid://b4gfqya48uiaq" path="res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Idle-pro.png" id="5_uaw4n"]
 [ext_resource type="Texture2D" uid="uid://b0onh4u7brqtk" path="res://Vid/right-arrow.png" id="6_qcmxi"]
+[ext_resource type="Texture2D" uid="uid://cj45b0imwu6o2" path="res://levels/maps/gothic-castle-preview.png" id="7_3hiuy"]
+[ext_resource type="Texture2D" uid="uid://v0cv6ckg1nwv" path="res://Vid/arrow.png" id="8_o7md2"]
+[ext_resource type="Texture2D" uid="uid://qg15ftfps0ww" path="res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Idle.png" id="9_b6b13"]
+[ext_resource type="Texture2D" uid="uid://rplwomftmbue" path="res://art/character/All_characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Idle.png" id="10_rsdg2"]
+[ext_resource type="Texture2D" uid="uid://3brort6ciu3b" path="res://art/character/All_characters/Characters(100x100)/Greatsword Skeleton/Greatsword Skeleton/Greatsword Skeleton-Idle.png" id="11_1mrcw"]
+[ext_resource type="Texture2D" uid="uid://ddw1b7dtpm27r" path="res://art/character/All_characters/Characters(100x100)/Swordsman/Swordsman/Swordsman-Idle.png" id="12_jokuv"]
+[ext_resource type="Texture2D" uid="uid://clgrf2ub6dm1h" path="res://art/character/All_characters/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="13_0pi6o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvk77"]
 bg_color = Color(0.00392157, 0.0627451, 0.0941176, 1)
@@ -23,7 +30,7 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66hg2"]
-bg_color = Color(0.168627, 0.156863, 0.290196, 1)
+bg_color = Color(0.202696, 0.135497, 0.303487, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
@@ -34,6 +41,11 @@ corner_radius_top_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43cxk"]
 bg_color = Color(0.0438224, 0.0384898, 0.0980884, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8v6f"]
+bg_color = Color(0.33509, 0.368554, 0.518065, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
@@ -100,8 +112,274 @@ Button/styles/normal = SubResource("StyleBoxFlat_wftqn")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hsre"]
 bg_color = Color(0.00392157, 0.0627451, 0.0941176, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rqxj"]
-bg_color = Color(0.168627, 0.156863, 0.290196, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfdf8"]
+bg_color = Color(0.333333, 0.368627, 0.517647, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejenh"]
+bg_color = Color(0.646494, 0.663386, 0.844482, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1p10"]
+bg_color = Color(0.46377, 0.477204, 0.706902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pbrr"]
+bg_color = Color(0.347569, 0.356974, 0.573073, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8j41"]
+bg_color = Color(0.166605, 0.181197, 0.263449, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqokq"]
+atlas = ExtResource("9_b6b13")
+region = Rect2(0, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kknmc"]
+atlas = ExtResource("9_b6b13")
+region = Rect2(100, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o7ak"]
+atlas = ExtResource("9_b6b13")
+region = Rect2(200, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n3u2"]
+atlas = ExtResource("9_b6b13")
+region = Rect2(300, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j1w7"]
+atlas = ExtResource("9_b6b13")
+region = Rect2(400, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b17d"]
+atlas = ExtResource("9_b6b13")
+region = Rect2(500, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwdcd"]
+atlas = ExtResource("10_rsdg2")
+region = Rect2(0, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcssj"]
+atlas = ExtResource("10_rsdg2")
+region = Rect2(100, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c037v"]
+atlas = ExtResource("10_rsdg2")
+region = Rect2(200, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkyie"]
+atlas = ExtResource("10_rsdg2")
+region = Rect2(300, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssh3a"]
+atlas = ExtResource("10_rsdg2")
+region = Rect2(400, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1wt0"]
+atlas = ExtResource("10_rsdg2")
+region = Rect2(500, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8gch"]
+atlas = ExtResource("11_1mrcw")
+region = Rect2(0, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdkyp"]
+atlas = ExtResource("11_1mrcw")
+region = Rect2(100, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djefl"]
+atlas = ExtResource("11_1mrcw")
+region = Rect2(200, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjqj3"]
+atlas = ExtResource("11_1mrcw")
+region = Rect2(300, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1kpf"]
+atlas = ExtResource("11_1mrcw")
+region = Rect2(400, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xy6m"]
+atlas = ExtResource("11_1mrcw")
+region = Rect2(500, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08axi"]
+atlas = ExtResource("12_jokuv")
+region = Rect2(0, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbxce"]
+atlas = ExtResource("12_jokuv")
+region = Rect2(100, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap684"]
+atlas = ExtResource("12_jokuv")
+region = Rect2(200, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_malya"]
+atlas = ExtResource("12_jokuv")
+region = Rect2(300, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv10h"]
+atlas = ExtResource("12_jokuv")
+region = Rect2(400, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c31aw"]
+atlas = ExtResource("12_jokuv")
+region = Rect2(500, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg7ap"]
+atlas = ExtResource("13_0pi6o")
+region = Rect2(0, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl8rf"]
+atlas = ExtResource("13_0pi6o")
+region = Rect2(100, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jehq8"]
+atlas = ExtResource("13_0pi6o")
+region = Rect2(200, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgyoc"]
+atlas = ExtResource("13_0pi6o")
+region = Rect2(300, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kggoe"]
+atlas = ExtResource("13_0pi6o")
+region = Rect2(400, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8asr0"]
+atlas = ExtResource("13_0pi6o")
+region = Rect2(500, 33, 100, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3mcg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqokq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kknmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o7ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n3u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j1w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b17d")
+}],
+"loop": true,
+"name": &"0",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwdcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcssj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c037v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkyie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssh3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1wt0")
+}],
+"loop": true,
+"name": &"1",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8gch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdkyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djefl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjqj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1kpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xy6m")
+}],
+"loop": true,
+"name": &"2",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08axi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbxce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap684")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_malya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv10h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c31aw")
+}],
+"loop": true,
+"name": &"3",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg7ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl8rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jehq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgyoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kggoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8asr0")
+}],
+"loop": true,
+"name": &"4",
+"speed": 8.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -114,16 +392,16 @@ script = ExtResource("1_mtcsr")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.862745)
-position = Vector2(579, 201.75)
+position = Vector2(579, 202.75)
 scale = Vector2(1.24353, 1.12926)
 texture = ExtResource("2_xulrb")
 
 [node name="host" type="Button" parent="."]
 layout_mode = 0
-offset_left = 315.0
-offset_top = 74.0
-offset_right = 372.0
-offset_bottom = 131.0
+offset_left = 310.0
+offset_top = 70.0
+offset_right = 373.0
+offset_bottom = 133.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_vvk77")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g7s8h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_66mwq")
@@ -133,7 +411,7 @@ text = "Host"
 layout_mode = 0
 offset_left = 380.0
 offset_top = 90.0
-offset_right = 442.0
+offset_right = 443.0
 offset_bottom = 133.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_66hg2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d62ej")
@@ -141,80 +419,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_43cxk")
 text = "Join
 "
 
-[node name="join2" type="Button" parent="."]
+[node name="options" type="Button" parent="."]
 layout_mode = 0
-offset_left = 451.0
+offset_left = 450.0
 offset_top = 90.0
 offset_right = 513.0
 offset_bottom = 133.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_66hg2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_d62ej")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_43cxk")
-text = "Maps
-"
-
-[node name="join3" type="Button" parent="."]
-layout_mode = 0
-offset_left = 520.0
-offset_top = 90.0
-offset_right = 582.0
-offset_bottom = 133.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_66hg2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_d62ej")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_43cxk")
-text = "Characters
-"
-
-[node name="join4" type="Button" parent="."]
-layout_mode = 0
-offset_left = 621.0
-offset_top = 90.0
-offset_right = 683.0
-offset_bottom = 133.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_66hg2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_d62ej")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_43cxk")
-text = "Level"
-
-[node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 576.0
-offset_top = -56.0
-offset_right = 853.0
-offset_bottom = 39.0
-
-[node name="UserAccountLabel" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 14.0
-offset_right = 126.0
-offset_bottom = 37.0
-text = "User Account"
-
-[node name="UserAccountText" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 153.0
-offset_top = 16.0
-offset_right = 258.0
-offset_bottom = 39.0
-text = "user account"
-
-[node name="DisplayName" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 56.0
-offset_right = 128.0
-offset_bottom = 79.0
-text = "Display Name"
-
-[node name="DisplayNameText" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 151.0
-offset_top = 55.0
-offset_right = 256.0
-offset_bottom = 78.0
-text = "user account"
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8v6f")
+text = "Options"
 
 [node name="Panel3" type="Panel" parent="."]
 layout_mode = 1
@@ -692,13 +904,13 @@ layout_mode = 0
 offset_left = 1.0
 offset_top = 142.0
 offset_right = 227.0
-offset_bottom = 474.0
+offset_bottom = 291.0
 
 [node name="Panel2" type="Panel" parent="Panel2"]
 layout_mode = 0
-offset_left = -4.0
+offset_left = -1.0
 offset_top = 6.0
-offset_right = 222.0
+offset_right = 225.0
 offset_bottom = 71.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2hsre")
 
@@ -721,51 +933,278 @@ text = "Not ready"
 vertical_alignment = 1
 
 [node name="Werewolf11" type="Sprite2D" parent="Panel2/Panel2"]
+position = Vector2(48.6418, 33.0703)
+scale = Vector2(3.05835, 3.05432)
+texture = ExtResource("5_uaw4n")
+
+[node name="Panel3" type="Panel" parent="Panel2"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 77.0
+offset_right = 225.0
+offset_bottom = 142.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2hsre")
+
+[node name="Label" type="Label" parent="Panel2/Panel3"]
+layout_mode = 1
+offset_left = 99.0
+offset_top = 12.0
+offset_right = 185.0
+offset_bottom = 35.0
+text = "user1"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel2/Panel3"]
+layout_mode = 1
+offset_left = 93.0
+offset_top = 39.0
+offset_right = 179.0
+offset_bottom = 62.0
+text = "Not ready"
+vertical_alignment = 1
+
+[node name="Werewolf11" type="Sprite2D" parent="Panel2/Panel3"]
 position = Vector2(42, 28)
 scale = Vector2(2.65385, 3.15625)
 texture = ExtResource("5_beul1")
 
-[node name="Panel3" type="Panel" parent="Panel2"]
+[node name="Panel8" type="Panel" parent="."]
+visible = false
 layout_mode = 0
-offset_left = -4.0
+offset_left = 288.0
+offset_top = 131.0
+offset_right = 844.0
+offset_bottom = 537.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sfdf8")
+
+[node name="Button" type="Button" parent="Panel8"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 157.0
+offset_bottom = 68.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ejenh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t1p10")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4pbrr")
+text = "Map"
+
+[node name="Button2" type="Button" parent="Panel8"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 20.0
+offset_right = 337.0
+offset_bottom = 68.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ejenh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t1p10")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4pbrr")
+text = "Character"
+
+[node name="Button3" type="Button" parent="Panel8"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 20.0
+offset_right = 517.0
+offset_bottom = 68.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ejenh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t1p10")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4pbrr")
+text = "Mode"
+
+[node name="map" type="Panel" parent="Panel8"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 79.0
+offset_right = 518.0
+offset_bottom = 381.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c8j41")
+
+[node name="MapPreview" type="TextureRect" parent="Panel8/map"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 48.0
+offset_right = 456.0
+offset_bottom = 284.0
+texture = ExtResource("7_3hiuy")
+expand_mode = 1
+
+[node name="PreviousButton" type="Button" parent="Panel8/map"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 136.0
+offset_right = 42.0
+offset_bottom = 176.0
+icon = ExtResource("8_o7md2")
+
+[node name="NextButton" type="Button" parent="Panel8/map"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 177.0
+offset_right = 536.0
+offset_bottom = 217.0
+rotation = 3.13815
+icon = ExtResource("8_o7md2")
+
+[node name="info" type="Label" parent="Panel8/map"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 499.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 25
+text = "gothic-castle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="char" type="Panel" parent="Panel8"]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 79.0
+offset_right = 518.0
+offset_bottom = 381.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c8j41")
+
+[node name="PreviousButton2" type="Button" parent="Panel8/char"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 86.0006
+offset_right = 149.0
+offset_bottom = 126.001
+icon = ExtResource("8_o7md2")
+
+[node name="NextButton2" type="Button" parent="Panel8/char"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 122.001
+offset_right = 409.0
+offset_bottom = 162.001
+rotation = 3.13703
+icon = ExtResource("8_o7md2")
+
+[node name="CharacterPreview" type="AnimatedSprite2D" parent="Panel8/char"]
+position = Vector2(235, 110)
+scale = Vector2(5.1, 5.6793)
+sprite_frames = SubResource("SpriteFrames_x3mcg")
+animation = &"0"
+autoplay = "0"
+frame_progress = 0.988247
+
+[node name="info1" type="Label" parent="Panel8/char"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 2.44421
+offset_right = 364.0
+offset_bottom = 37.4442
+theme_override_font_sizes/font_size = 25
+text = "demon-idle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel8/char"]
+layout_mode = 0
+offset_left = 1.0
 offset_top = 192.0
-offset_right = 222.0
-offset_bottom = 357.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4rqxj")
+offset_right = 497.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 10
+text = "\"Fanny shoots a cable in the target direction that pulls her to the first obstacle hit. She can cast this skill again within 2 seconds until her energy runs out. Each successive cast reduces the skill's energy cost by 2.
+Fanny automatically casts Tornado Strike Tornado Strike upon hitting an enemy mid-flight, as long as her energy is sufficient.\""
+horizontal_alignment = 1
+autowrap_mode = 1
 
-[node name="Label" type="Label" parent="Panel2/Panel3"]
-layout_mode = 1
-offset_left = 80.0
+[node name="mode" type="Panel" parent="Panel8"]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 79.0
+offset_right = 518.0
+offset_bottom = 381.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c8j41")
+
+[node name="Multi" type="CheckBox" parent="Panel8/mode"]
+offset_left = 19.0
+offset_top = 48.0
+offset_right = 43.0
+offset_bottom = 72.0
+disabled = true
+
+[node name="PvP" type="CheckBox" parent="Panel8/mode"]
+offset_left = 46.0
+offset_top = 93.0
+offset_right = 70.0
+offset_bottom = 117.0
+disabled = true
+
+[node name="Survival" type="CheckBox" parent="Panel8/mode"]
+offset_left = 46.0
+offset_top = 135.0
+offset_right = 70.0
+offset_bottom = 159.0
+disabled = true
+
+[node name="Label4" type="Label" parent="Panel8/mode"]
+offset_left = 52.0
+offset_top = 43.0
+offset_right = 226.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 25
+text = "Multiplayer"
+
+[node name="Label5" type="Label" parent="Panel8/mode"]
+offset_left = 74.0
+offset_top = 87.0
+offset_right = 248.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 25
+text = "PvP"
+
+[node name="Label6" type="Label" parent="Panel8/mode"]
+offset_left = 74.0
+offset_top = 130.0
+offset_right = 248.0
+offset_bottom = 164.0
+theme_override_font_sizes/font_size = 25
+text = "Survival"
+
+[node name="Panel9" type="Panel" parent="Panel8/mode"]
+offset_left = 268.0
+offset_top = 28.0
+offset_right = 469.0
+offset_bottom = 234.0
+
+[node name="Label" type="Label" parent="Panel8/mode/Panel9"]
+layout_mode = 0
+offset_left = 8.0
 offset_top = 17.0
-offset_right = 229.0
-offset_bottom = 40.0
-text = "Opponent: Player 1"
+offset_right = 137.0
+offset_bottom = 46.0
+text = "Round numbers:"
 
-[node name="Label2" type="Label" parent="Panel2/Panel3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 11.5
-offset_top = 9.5
-offset_right = 88.5
-offset_bottom = 32.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Not ready"
+[node name="Label2" type="Label" parent="Panel8/mode/Panel9"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 101.0
+offset_right = 139.0
+offset_bottom = 130.0
+text = "Question numbers:"
 
-[node name="Knight-attack33" type="Sprite2D" parent="Panel2/Panel3"]
-position = Vector2(67, 80)
-scale = Vector2(5.67857, 5.22)
-texture = ExtResource("6_2biej")
+[node name="LineEdit" type="LineEdit" parent="Panel8/mode/Panel9"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 52.0
+offset_right = 132.0
+offset_bottom = 83.0
+
+[node name="LineEdit2" type="LineEdit" parent="Panel8/mode/Panel9"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 138.0
+offset_right = 136.0
+offset_bottom = 169.0
 
 [connection signal="pressed" from="host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="join" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="join2" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="join3" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="join4" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="options" to="." method="_on_options_pressed"]
 [connection signal="button_down" from="Panel3/JoinCreateMatch" to="." method="_on_join_create_match_button_down"]
 [connection signal="button_down" from="Panel3/Matchmaking" to="." method="_on_matchmaking_button_down"]
 [connection signal="button_down" from="Panel3/Button" to="." method="_on_button_button_down"]
@@ -791,3 +1230,10 @@ texture = ExtResource("6_2biej")
 [connection signal="button_down" from="Panel7/Chat/SubmitChat" to="." method="_on_submit_chat_button_down"]
 [connection signal="button_down" from="Panel7/JoinDirectChat" to="." method="_on_join_direct_chat_button_down"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel8/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel8/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel8/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Panel8/map/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="Panel8/map/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Panel8/char/PreviousButton2" to="." method="_on_previous_button_2_pressed"]
+[connection signal="pressed" from="Panel8/char/NextButton2" to="." method="_on_next_button_2_pressed"]
