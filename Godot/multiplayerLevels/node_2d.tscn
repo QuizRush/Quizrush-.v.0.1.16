@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://chiaobr3sl0yx"]
+[gd_scene load_steps=8 format=3 uid="uid://chiaobr3sl0yx"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.gd" id="1_u3ux4"]
 [ext_resource type="PackedScene" uid="uid://dbh5v351hg1a2" path="res://Entities/Player/archer/character_5.tscn" id="2_wgyoi"]
@@ -8,9 +8,6 @@
 [ext_resource type="FontFile" uid="uid://b304kctevhwix" path="res://font/PixelifySans-VariableFont_wght.ttf" id="8_wgvs0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wsrjf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_va3sq"]
-size = Vector2(1153, 111)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_u3ux4")
@@ -23,8 +20,7 @@ region_enabled = true
 region_rect = Rect2(0, 137.571, 1980, 655.429)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 8
-collision_mask = 7
+collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1030, 593)
@@ -39,17 +35,6 @@ shape = SubResource("WorldBoundaryShape2D_wsrjf")
 position = Vector2(1980, 250)
 rotation = 4.71239
 shape = SubResource("WorldBoundaryShape2D_wsrjf")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(163, 759)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(415, -1)
-scale = Vector2(3.62188, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(414.5, -112.5)
-shape = SubResource("RectangleShape2D_va3sq")
 
 [node name="Werewolf1" type="Sprite2D" parent="."]
 visible = false
@@ -75,18 +60,19 @@ offset_bottom = 162.0
 grow_horizontal = 2
 color = Color(0.132437, 0.128608, 0.163234, 1)
 
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_right = 130.0
-offset_bottom = 107.0
+[node name="Label" type="Label" parent="."]
+offset_left = 515.0
+offset_top = 52.0
+offset_right = 645.0
+offset_bottom = 159.0
 theme_override_fonts/font = ExtResource("8_wgvs0")
 theme_override_font_sizes/font_size = 30
 text = "4:31"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpawnPoint" type="Node2D" parent="." groups=["SpawnPoint"]]
-position = Vector2(279, 412)
-
 [node name="SpawnPoint2" type="Node2D" parent="." groups=["SpawnPoint"]]
-position = Vector2(738, 412)
+position = Vector2(847, 551)
+
+[node name="SpawnPoint" type="Node2D" parent="." groups=["SpawnPoint"]]
+position = Vector2(308, 568)

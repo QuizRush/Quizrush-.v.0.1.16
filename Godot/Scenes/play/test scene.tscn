@@ -969,7 +969,6 @@ scale = Vector2(2.65385, 3.15625)
 texture = ExtResource("5_beul1")
 
 [node name="Panel8" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 288.0
 offset_top = 131.0
@@ -1087,7 +1086,7 @@ scale = Vector2(5.1, 5.6793)
 sprite_frames = SubResource("SpriteFrames_x3mcg")
 animation = &"0"
 autoplay = "0"
-frame_progress = 0.185522
+frame_progress = 0.601869
 
 [node name="info1" type="Label" parent="Panel8/char"]
 layout_mode = 0
