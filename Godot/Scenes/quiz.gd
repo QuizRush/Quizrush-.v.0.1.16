@@ -23,7 +23,7 @@ func _authenticate_and_fetch_data():
 
 	NakamaManager.session = await NakamaManager.client.authenticate_email_async(NakamaManager.email, NakamaManager.password)
 	session = NakamaManager.session
-	client = Nakama.create_client("defaultkey", "127.0.0.1", 7350, "http")
+	client = Nakama.create_client("defaultkey", "163.43.113.37", 7350, "http")
 	socket = Nakama.create_socket_from(NakamaManager.client)
 	await socket.connect_async(NakamaManager.session)
 

@@ -100,7 +100,7 @@ signal OnStartGame()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	client = Nakama.create_client("defaultkey", "127.0.0.1", 7350, "http")
+	client = Nakama.create_client("defaultkey", "163.43.113.37", 7350, "http")
 	session = await client.authenticate_email_async(NakamaManager.email, NakamaManager.password)
 
 	socket = Nakama.create_socket_from(client)
@@ -113,16 +113,10 @@ func _ready():
 	
 	socket.received_match_presence.connect(onMatchPresence)
 	socket.received_match_state.connect(onMatchState)
-	#
-	#socket.received_channel_message.connect(onChannelMessage)
-	
-	
-	#updateUserInfo("test", "testDisplay")
 	
 	var account = await client.get_account_async(session)
 	#
 	$Panel2/Panel2/Label.text = account.user.display_name
-	
 	setupMultiplayerBridge()
 	#subToFriendChannels()
 	pass # Replace with function body.
@@ -248,7 +242,7 @@ func _on_join_create_match_button_down():
 		#return
 	#
 	#print("Created match :" + str(createdMatch.match_id))
-	pass # Replace with function body.
+	pass 
 
 
 
@@ -459,7 +453,7 @@ func _on_host_pressed():
 	$Panel3.add_theme_stylebox_override("panel", style_box)
 	$Panel3.visible = true
 	$Panel8.visible = false
-
+	$Panel3/JoinCreateMatch.text = "Create"
 func _on_join_pressed():
 	buttonGang.set_size(Vector2(63,43)) 
 	buttonGang.position = (Vector2(310,90))
@@ -473,6 +467,7 @@ func _on_join_pressed():
 	$Panel3.add_theme_stylebox_override("panel", style_box)
 	$Panel3.visible = true
 	$Panel8.visible = false
+	$Panel3/JoinCreateMatch.text = "Join"
 
 func _on_options_pressed():
 	buttonGang.set_size(Vector2(63,43)) 
@@ -500,7 +495,6 @@ func _on_previous_button_pressed():
 func update_map_preview():
 	$Panel8/map/MapPreview.texture = map_images[current_map_index]
 	$Panel8/map/info.text = map_infos[current_map_index]
-	
 	
 func _on_previous_button_2_pressed():
 	current_char_index -= 1

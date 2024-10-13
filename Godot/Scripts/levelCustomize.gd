@@ -139,9 +139,6 @@ func _on_button_pressed():
 	$Panel/Single.button_pressed = false
 	$Panel/Boss.button_pressed = false
 	$Panel/Endless.button_pressed = false
-	$Panel/Multi.button_pressed = false
-	$Panel/PvP.button_pressed = false
-	$Panel/Survival.button_pressed = false
 	$Panel2/DB.button_pressed = false
 	$Panel2/DB2.button_pressed = false
 	$Panel3/turnBased.button_pressed = false
@@ -194,121 +191,35 @@ func _on_single_pressed():
 		$Panel5/info.text="シングルプレイヤーは、一人用のゲームモードです。"
 		toggledInfo=0
 		update_review()
-	if($Panel/Multi.button_pressed == true):
-		$Panel/Multi.button_pressed=false
-		$Panel5/info.text="シングルプレイヤーは、一人用のゲームモードです。"
-		toggledInfo=0
-		update_review()
-	if($Panel/PvP.button_pressed == true):
-		$Panel/PvP.button_pressed = false
-		$Panel/Single.button_pressed=true
-		$Panel5/info.text="シングルプレイヤーは、一人用のゲームモードです。"
-		toggledInfo=0
-		update_review()
-	if($Panel/Survival.button_pressed):
-		$Panel/Survival.button_pressed = false
-		$Panel/Single.button_pressed=true
-		$Panel5/info.text="シングルプレイヤーは、一人用のゲームモードです。"
-		toggledInfo=0
-		update_review()
 
 func _on_boss_pressed():
-	if($Panel/Multi.button_pressed != true):
+	if($Panel/Boss.button_pressed == false):
+		$Panel/Boss.button_pressed = true
 		toggledInfo=2
 		update_review()
 		$Panel5/info.text="Boss"
-		if($Panel/Boss.button_pressed == false):
-			$Panel/Boss.button_pressed = true
-			toggledInfo=2
-			update_review()
-			$Panel5/info.text="Boss"
-		if($Panel/Endless.button_pressed == true):
-			$Panel/Endless.button_pressed=false
-			$Panel5/info.text="Boss"
-			toggledInfo=2
-			update_review()
-	else:
-		$Panel/Boss.button_pressed = false
+	if($Panel/Endless.button_pressed == true):
+		$Panel/Endless.button_pressed=false
+		$Panel5/info.text="Boss"
+		toggledInfo=2
+		update_review()
+
 func _on_endless_pressed():
-	if($Panel/Multi.button_pressed != true):
+	toggledInfo=3
+	update_review()
+	$Panel5/info.text="Endless"
+	if($Panel/Endless.button_pressed == false):
+		$Panel/Endless.button_pressed = true
 		toggledInfo=3
 		update_review()
 		$Panel5/info.text="Endless"
-		if($Panel/Endless.button_pressed == false):
-			$Panel/Endless.button_pressed = true
-			toggledInfo=3
-			update_review()
-			$Panel5/info.text="Endless"
-		if($Panel/Boss.button_pressed == true):
-			$Panel/Boss.button_pressed=false
-			$Panel5/info.text="Endless"
-			toggledInfo=3
-			update_review()
-	else:
-		$Panel/Endless.button_pressed = false
-		
-func _on_multi_pressed():
-	toggledInfo=1
-	update_review()
-	$Panel5/info.text="マルチプレイヤーは、複数人で遊ぶゲームモードです。"
-	if($Panel/Multi.button_pressed == false):
-		$Panel/Multi.button_pressed=true
-		$Panel5/info.text="マルチプレイヤーは、複数人で遊ぶゲームモードです。"
-		toggledInfo=1
-		update_review()
-	if($Panel/Single.button_pressed == true):
-		$Panel/Single.button_pressed = false
-		$Panel5/info.text="マルチプレイヤーは、複数人で遊ぶゲームモードです。"
-		toggledInfo=1
-		update_review()
 	if($Panel/Boss.button_pressed == true):
-		$Panel/Boss.button_pressed = false
-		$Panel/Multi.button_pressed=true
-		$Panel5/info.text="マルチプレイヤーは、複数人で遊ぶゲームモードです。"
-		toggledInfo=1
-		update_review()
-	if($Panel/Endless.button_pressed == true):
-		$Panel/Endless.button_pressed = false
-		$Panel/Multi.button_pressed=true
-		$Panel5/info.text="マルチプレイヤーは、複数人で遊ぶゲームモードです。"
-		toggledInfo=1
+		$Panel/Boss.button_pressed=false
+		$Panel5/info.text="Endless"
+		toggledInfo=3
 		update_review()
 
-func _on_pv_p_pressed():
-	if($Panel/Single.button_pressed != true):
-		$Panel5/info.text="Hamtaigaa."
-		toggledInfo=4
-		update_review()
-		if($Panel/PvP.button_pressed == false):
-			$Panel/PvP.button_pressed = true
-			toggledInfo=4
-			update_review()
-			$Panel5/info.text="Hamtaigaa."
-		if($Panel/Survival.button_pressed == true):
-			$Panel/Survival.button_pressed=false
-			$Panel5/info.text="Hamtaigaa."
-			toggledInfo=4
-			update_review()
-	else:
-		$Panel/PvP.button_pressed = false
-
-func _on_survival_pressed():
-	if($Panel/Single.button_pressed != true):
-		$Panel5/info.text="Medal3."
-		toggledInfo=5
-		update_review()
-		if($Panel/Survival.button_pressed == false):
-			$Panel/Survival.button_pressed = true
-			toggledInfo=5
-			update_review()
-			$Panel5/info.text="Medal3."
-		if($Panel/PvP.button_pressed == true):
-			$Panel/PvP.button_pressed=false
-			$Panel5/info.text="Medal3."
-			toggledInfo=5
-			update_review()
-	else:
-		$Panel/Survival.button_pressed = false
+		
 
 func _on_db_pressed():
 	if($Panel2/DB.button_pressed == false):

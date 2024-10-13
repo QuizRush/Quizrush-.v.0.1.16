@@ -5,7 +5,7 @@ var client: NakamaClient
 var socket: NakamaSocket
 
 func _ready():
-	client = Nakama.create_client("defaultkey", "127.0.0.1", 7350, "http")
+	client = Nakama.create_client("defaultkey", "163.43.113.37", 7350, "http")
 	session = await client.authenticate_email_async("t@gmail.com", "password69")
 	socket = Nakama.create_socket_from(client)
 	await socket.connect_async(session)
