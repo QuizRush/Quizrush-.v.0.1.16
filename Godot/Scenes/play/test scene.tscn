@@ -1,7 +1,7 @@
 [gd_scene load_steps=69 format=3 uid="uid://cfhijka6t0tcb"]
 
 [ext_resource type="Script" path="res://Scripts/Client.gd" id="1_mtcsr"]
-[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/map background/Free Pixel Art Forest/Preview/Background.png" id="2_xulrb"]
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://multiplayerLevels/Background.png" id="2_xulrb"]
 [ext_resource type="FontFile" uid="uid://b304kctevhwix" path="res://font/PixelifySans-VariableFont_wght.ttf" id="4_s1bpf"]
 [ext_resource type="Texture2D" uid="uid://wbiclb6y7bix" path="res://Werewolf/Werewolf/Werewolf11.png" id="5_beul1"]
 [ext_resource type="Texture2D" uid="uid://b4gfqya48uiaq" path="res://art/character/All_characters/Characters(100x100)/Archer/Archer/Archer-Idle-pro.png" id="5_uaw4n"]

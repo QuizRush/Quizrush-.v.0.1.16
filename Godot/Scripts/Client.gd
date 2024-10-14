@@ -514,7 +514,6 @@ func _on_previous_button_pressed():
 	update_map_preview()
 
 func update_map_preview():
-	print("sda")
 	print(map_infos[current_map_index])
 	$Panel8/map/MapPreview.texture = map_images[current_map_index]
 	$Panel8/map/info.text = map_infos[current_map_index]

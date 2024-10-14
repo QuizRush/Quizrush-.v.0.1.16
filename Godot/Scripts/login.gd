@@ -43,6 +43,7 @@ func _on_login_button_pressed():
 	var account = await client.get_account_async(session)
 	NakamaManager.initialize_nakama(client ,session,socket)
 	NakamaManager.initialize_email($EmailInput.text, $PasswordInput.text)
+	MultiplayerNakamaManager.inst()
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 
 

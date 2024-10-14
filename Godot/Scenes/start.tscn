@@ -1034,18 +1034,18 @@ scale = Vector2(1.24461, 1.1261)
 texture = ExtResource("2_qpknx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(553, 481)
+position = Vector2(628.979, 483)
 scale = Vector2(1.17361, 1.23125)
 sprite_frames = SubResource("SpriteFrames_ad866")
 autoplay = "default"
-frame_progress = 0.532092
+frame_progress = 0.337989
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(457, 499)
+position = Vector2(519.802, 498)
 scale = Vector2(1.23611, 1.23438)
 sprite_frames = SubResource("SpriteFrames_x10mp")
 autoplay = "default"
-frame_progress = 0.0376212
+frame_progress = 0.179539
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
 position = Vector2(210, 480)

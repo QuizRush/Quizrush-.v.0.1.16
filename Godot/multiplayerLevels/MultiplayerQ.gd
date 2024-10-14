@@ -41,16 +41,12 @@ func _on_timer_timeout():
 	load_quiz()
 
 func fetch_questions() -> void:
-	if NakamaManager.client == null:
-		print("Nakama client is not initialized!")
-		return
-
 	session = await NakamaManager.client.authenticate_email_async(NakamaManager.email, NakamaManager.password)
 	client = Nakama.create_client("defaultkey", "163.43.113.37", 7350, "http")
 	socket = Nakama.create_socket_from(NakamaManager.client)
 	await socket.connect_async(session)
 	
-	var result = await client.list_storage_objects_async(session, "Levels", session.user_id, 5)
+	var result = await client.list_storage_objects_async(session, "Quiz", session.user_id, 5)
 	if result.objects.size() == 0:
 		print("No levels found.")
 		return
@@ -58,18 +54,17 @@ func fetch_questions() -> void:
 	var json_parser = JSON.new()
 	for obj in result.objects:
 		var parse_result = json_parser.parse(obj.value)  
-		if parse_result == OK and json_parser.data.has("Levels"):
-			for level in json_parser.data["Levels"]:
-				if level.has("map_name") and level["map_name"] == NakamaManager.map_name:
-					questions = level["questions"]
-					break
+		if parse_result == OK and json_parser.data.has("Questions"):
+			for level in json_parser.data["Questions"]:
+				questions = level
+				break
 
 	if questions.size() >= 0:
 		_display_question(questions[current_question_index])  
 		load_quiz()  
+	
 
 func _display_question(question_data: Dictionary) -> void:
-	# Check if it's a keyword question
 	if question_data.has("keyword"):
 		question_text.text = question_data["question_text1"]  # For fill-in-the-blank questions
 		$Control/qHolder/Option1.visible = false  # Hide options for fill-in-the-blank

@@ -12,12 +12,9 @@ func _ready():
 		var instancedPlayer = playerScene.instantiate()
 		instancedPlayer.name = str(NakamaMultiplayer.Players[i].name)
 		add_child(instancedPlayer)
-		
 		instancedPlayer.global_position = spawnpoints[index].global_position
-		
 		index += 1
 	pass 
-
 
 func _process(delta):
 	pass

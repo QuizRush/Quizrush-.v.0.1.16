@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://chiaobr3sl0yx"]
+[gd_scene load_steps=9 format=3 uid="uid://chiaobr3sl0yx"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.gd" id="1_u3ux4"]
 [ext_resource type="PackedScene" uid="uid://dbh5v351hg1a2" path="res://Entities/Player/archer/character_5.tscn" id="2_wgyoi"]
-[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://assets/background/map background/Free Pixel Art Forest/Preview/Background.png" id="4_8e4a6"]
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://multiplayerLevels/Background.png" id="4_8e4a6"]
 [ext_resource type="Texture2D" uid="uid://cv2fv4whd3ywt" path="res://Werewolf/Werewolf/Werewolf1.png" id="6_ailja"]
 [ext_resource type="Texture2D" uid="uid://cxea33qlsdphq" path="res://assets gg/Knight1.png" id="7_f86cp"]
+[ext_resource type="PackedScene" uid="uid://23fweu48yu4b" path="res://multiplayerLevels/MultiplayerQ.tscn" id="7_fu6lx"]
 [ext_resource type="FontFile" uid="uid://b304kctevhwix" path="res://font/PixelifySans-VariableFont_wght.ttf" id="8_wgvs0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wsrjf"]
@@ -12,6 +13,8 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_u3ux4")
 playerScene = ExtResource("2_wgyoi")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("7_fu6lx")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(988, 326)
