@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://fm5r1x2paeig"]
+
+[ext_resource type="Script" path="res://Scripts/manaBar.gd" id="1_vrpqq"]
+[ext_resource type="Texture2D" uid="uid://ds283kssaxu5t" path="res://art/zursan/mana1.png" id="2_dermv"]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.52, 1)
+script = ExtResource("1_vrpqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dermv")

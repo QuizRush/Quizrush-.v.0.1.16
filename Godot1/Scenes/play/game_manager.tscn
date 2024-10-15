@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1rptd8f4j0ee"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_c0vjc"]
+[ext_resource type="PackedScene" uid="uid://chiaobr3sl0yx" path="res://multiplayerLevels/map_1.tscn" id="2_qb1vb"]
+[ext_resource type="PackedScene" uid="uid://cfhijka6t0tcb" path="res://Scenes/play/test scene.tscn" id="2_ysfsu"]
+[ext_resource type="PackedScene" uid="uid://uce5lkc3omsk" path="res://multiplayerLevels/map_2.tscn" id="3_tllns"]
+[ext_resource type="PackedScene" uid="uid://dq6riw4lem4xv" path="res://multiplayerLevels/map_3.tscn" id="4_njsoh"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_c0vjc")
+multiplayerScene1 = ExtResource("2_qb1vb")
+multiplayerScene2 = ExtResource("3_tllns")
+multiplayerScene3 = ExtResource("4_njsoh")
+
+[node name="UI" parent="." instance=ExtResource("2_ysfsu")]
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="MultiplayerScene" type="Node2D" parent="."]

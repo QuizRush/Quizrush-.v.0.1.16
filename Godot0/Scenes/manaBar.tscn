@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cke7gbnu5bd7t"]
+
+[ext_resource type="Texture2D" uid="uid://b5fjs2vo7kkof" path="res://art/zursan/mana1.png" id="2_3gxfj"]
+
+[sub_resource type="GDScript" id="GDScript_eh608"]
+script/source = "extends Node2D
+
+var mana_level = 1
+var mana_textures = []
+
+@onready var sprite = $Sprite2D
+
+func _ready():
+	load_mana_textures()
+	update_mana_bar()
+
+func load_mana_textures():
+	mana_textures.append(load(\"res://art/zursan/mana1.png\"))
+	mana_textures.append(load(\"res://art/zursan/mana2.png\"))
+	mana_textures.append(load(\"res://art/zursan/mana3.png\"))
+	mana_textures.append(load(\"res://art/zursan/mana4.png\"))
+	mana_textures.append(load(\"res://art/zursan/mana5.png\"))
+
+@rpc
+func increase_mana():
+	if mana_level < 5:
+		mana_level += 1
+		update_mana_bar()
+		rpc(\"sync_mana_level\", mana_level)
+
+@rpc
+func reset_mana():
+	mana_level = 1
+	update_mana_bar()
+	rpc(\"sync_mana_level\", mana_level)
+
+@rpc
+func sync_mana_level(level: int):
+	mana_level = level
+	update_mana_bar()
+
+func update_mana_bar():
+	sprite.texture = mana_textures[mana_level - 1]
+"
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.52, 1)
+script = SubResource("GDScript_eh608")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_3gxfj")

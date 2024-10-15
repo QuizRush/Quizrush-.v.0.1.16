@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://yyne6afup543"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_spawner.gd" id="1_lcavj"]
+
+[node name="Enemy_spawner" type="Node2D"]
+script = ExtResource("1_lcavj")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(279, 31)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(761, 66)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(673, 126)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(470, 238)
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(114, 461)
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+position = Vector2(275, 460)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+position = Vector2(753, 508)
+
+[node name="Marker2D8" type="Marker2D" parent="."]
+position = Vector2(935, 374)
+
+[node name="Marker2D9" type="Marker2D" parent="."]
+position = Vector2(1273, 232)
+
+[node name="Marker2D10" type="Marker2D" parent="."]
+position = Vector2(1282, 518)
+
+[node name="Marker2D11" type="Marker2D" parent="."]
+position = Vector2(1543, 495)
+
+[node name="Marker2D12" type="Marker2D" parent="."]
+position = Vector2(1718, 249)
+
+[node name="Marker2D13" type="Marker2D" parent="."]
+position = Vector2(1545, -90)
+
+[node name="Marker2D14" type="Marker2D" parent="."]
+position = Vector2(1542, 47)
+
+[node name="Marker2D15" type="Marker2D" parent="."]
+position = Vector2(1816, 118)
+
+[node name="Marker2D16" type="Marker2D" parent="."]
+position = Vector2(2084, 440)
+
+[node name="Marker2D17" type="Marker2D" parent="."]
+position = Vector2(2061, 353)
+
+[node name="Marker2D18" type="Marker2D" parent="."]
+position = Vector2(3048, 416)
+
+[node name="Marker2D19" type="Marker2D" parent="."]
+position = Vector2(2442, -67)
+
+[node name="Marker2D20" type="Marker2D" parent="."]
+position = Vector2(2700, -114)
+
+[node name="Marker2D21" type="Marker2D" parent="."]
+position = Vector2(3013, -91)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
