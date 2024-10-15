@@ -81,6 +81,8 @@ func _on_done_pressed():
 			checked_questions.append(question)
 	MultiplayerNakamaManager.level_custom_data["questions"] = checked_questions
 	MultiplayerNakamaManager.send_question()
+	
+	
 	$".".visible = false
 	
 func display_questions1(dataList1):

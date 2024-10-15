@@ -32,7 +32,10 @@ func _ready():
 	fetch_questions()  
 
 func _on_timer_timeout():
-	get_tree().paused = true
+	if is_multiplayer_authority():
+		pause_game()
+	else:
+		rpc("rpc_pause_game")
 	$Control.visible = true
 	for button in buttons:
 		button.visible = true
@@ -40,15 +43,45 @@ func _on_timer_timeout():
 	correct = 0
 	load_quiz()
 
+func pause_game():
+	print("Attempting to pause the game...")
+	get_tree().paused = true
+	print("Game paused: ", get_tree().paused) 
+
+	if is_multiplayer_authority():
+		rpc("rpc_pause_game")
+
+@rpc
+func rpc_pause_game():
+	print("RPC received: Pausing game on other clients.")
+	get_tree().paused = true
+	$Control.visible = true
+
+func unpause_game():
+	print("Unpausing the game...")
+	get_tree().paused = false
+	$Control.visible = false
+	print("Game paused state: ", get_tree().paused)  # Confirming unpause state
+	# Notify other players to unpause
+	if is_multiplayer_authority():
+		rpc("rpc_unpause_game")
+
+@rpc
+func rpc_unpause_game():
+	print("RPC received: Unpausing game on other clients.")
+	get_tree().paused = false
+	$Control.visible = false
+
+
 func fetch_questions() -> void:
 	session = await NakamaManager.client.authenticate_email_async(NakamaManager.email, NakamaManager.password)
 	client = Nakama.create_client("defaultkey", "163.43.113.37", 7350, "http")
 	socket = Nakama.create_socket_from(NakamaManager.client)
 	await socket.connect_async(session)
 	
-	var result = await client.list_storage_objects_async(session, "Quiz", session.user_id, 5)
+	var result = await client.list_storage_objects_async(session, "Quiz", "", 5)
 	if result.objects.size() == 0:
-		print("No levels found.")
+		print("No quz found.")
 		return
 		
 	var json_parser = JSON.new()
@@ -104,11 +137,11 @@ func _display_question(question_data: Dictionary) -> void:
 func load_quiz() -> void:
 	if index >= questions.size():  
 		$Control.visible = false
-		get_tree().paused = false
+		unpause_game()
 		print("Score: ", correct)  
 		return
-	_display_question(questions[index])
 	current_question_index = index 
+	_display_question(questions[index])
 	
 func _next_quiz() -> void:
 	await get_tree().create_timer(2).timeout

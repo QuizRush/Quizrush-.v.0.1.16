@@ -123,8 +123,9 @@ func updateUserInfo(username, displayname, avaterurl = "", language = "en", loca
 func onMatchPresence(presence : NakamaRTAPI.MatchPresenceEvent):
 	print(presence)
 
-func onMatchState(state : NakamaRTAPI.MatchData):
-	print("data is : " + str(state.data))
+func onMatchState(state: NakamaRTAPI.MatchData):
+	pass
+
 
 func onSocketConnected():
 	print("Socket Connected")
@@ -177,8 +178,6 @@ func onPeerConnected(id):
 		else:
 			print("Player name not found for ID: " + str(id))
 
-
-	
 func onPeerDisconnected(id):
 	print("Peer disconnected id is : " + str(id))
 	
@@ -235,15 +234,14 @@ func _on_list_data_button_down():
 
 
 func _on_join_create_match_button_down():
+	var match_name = $Panel3/MatchName.text
+	if match_name == "":
+		print("Please enter a valid match name")
+		return
 	multiplayerBridge.join_named_match($Panel3/MatchName.text)
 	
-	#createdMatch = await socket.create_match_async($Panel3/MatchName.text)
-	#if createdMatch.is_exception():
-		#print("Failed to create match " + str(createdMatch))
-		#return
-	#
-	#print("Created match :" + str(createdMatch.match_id))
-	pass 
+	# Signal to other players or update game state
+	emit_signal("OnStartGame")
 
 
 
@@ -271,6 +269,25 @@ func _on_matchmaking_button_down():
 func onMatchMakerMatched(matched : NakamaRTAPI.MatchmakerMatched):
 	var joinedMatch = await socket.join_matched_async(matched)
 	createdMatch = joinedMatch
+	
+func send_custom_data():
+	var questions = MultiplayerNakamaManager.level_custom_data["questions"]
+
+	if !questions:
+		print("No questions to send.")
+		return
+
+	var match_id = multiplayerBridge.match_id
+
+	# Convert questions to JSON to send over the network
+	var questions_data = JSON.stringify(questions)
+
+	# Send the match state with the custom questions data
+	var op_code = 1 # You can use different opcodes to distinguish different types of data
+	await socket.send_match_state_async(match_id, op_code, questions_data.to_utf8())
+
+	print("Questions sent to match participants!")
+
 
 ######### Friends 
 func _on_add_friend_button_down():

@@ -160,6 +160,7 @@ grow_vertical = 2
 
 [node name="Control" type="Control" parent="."]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 264.0
@@ -275,9 +276,16 @@ stream = ExtResource("5_qprdu")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 3.0
+wait_time = 5.0
+autostart = true
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_0nhsq")
 }
+
+[connection signal="pressed" from="Control/qHolder/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="Control/qHolder/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="Control/qHolder/Option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="Control/qHolder/Option4" to="." method="_on_option_4_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

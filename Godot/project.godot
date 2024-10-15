@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://mainScripts/Global.gd"
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
+Global="*res://mainScripts/Global.gd"
 NakamaManager="*res://Scripts/NakamaManager.gd"
 MainManager="*res://Scripts/mainManager.gd"
 MultiplayerNakamaManager="*res://Scripts/MultiplayerNakamaManager.gd"
