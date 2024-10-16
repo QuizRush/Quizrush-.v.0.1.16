@@ -1,0 +1,206 @@
+[gd_scene load_steps=21 format=3 uid="uid://b72l10ewoqn00"]
+
+[ext_resource type="Script" path="res://Scripts/qShow.gd" id="1_02q3i"]
+[ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://multiplayerLevels/Background.png" id="2_kfhlv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xlxs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6jba"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5kma"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w02wq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbslr"]
+
+[sub_resource type="Theme" id="Theme_rqnmr"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_4xlxs")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_l6jba")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_l5kma")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_w02wq")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_cbslr")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5r21c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x8ap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwr53"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72gsi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2n1v6"]
+
+[sub_resource type="Theme" id="Theme_atyxw"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_5r21c")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_1x8ap")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_nwr53")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_72gsi")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_2n1v6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n111l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrek3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7i00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7x5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urxdq"]
+
+[sub_resource type="Theme" id="Theme_vxqfp"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_n111l")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_mrek3")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_g7i00")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_m7x5t")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_urxdq")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_02q3i")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577, 200.75)
+scale = Vector2(1.24353, 1.12421)
+texture = ExtResource("2_kfhlv")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 380.0
+offset_bottom = 583.0
+
+[node name="info" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.5
+offset_right = 81.5
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "With 4 answers	"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rqnmr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+alignment = 1
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+alignment = 1
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 48.0
+offset_right = 767.0
+offset_bottom = 582.0
+
+[node name="info" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "With one keyword"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel2"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 39.0
+offset_right = 382.0
+offset_bottom = 534.0
+theme = SubResource("Theme_atyxw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2/ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Panel2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 34
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 773.0
+offset_top = 46.0
+offset_right = 1153.0
+offset_bottom = 581.0
+
+[node name="info" type="Label" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_right = 42.0
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "True/False"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel3"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 34.0
+offset_right = 375.0
+offset_bottom = 529.0
+theme = SubResource("Theme_vxqfp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel3/ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="Panel3/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel3/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="info" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 385.0
+offset_top = -12.0
+offset_right = 824.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Choose your questions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Done" type="Button" parent="."]
+layout_mode = 0
+offset_left = 987.0
+offset_top = 594.0
+offset_right = 1151.0
+offset_bottom = 645.0
+text = "Done"
+
+[connection signal="pressed" from="Done" to="." method="_on_done_pressed"]
