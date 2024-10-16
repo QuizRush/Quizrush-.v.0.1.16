@@ -140,9 +140,7 @@ func spawn_arrow(position: Vector2, direction: Vector2, arrow_name: String, dama
 	Bullet_node.global_position = position
 
 func take_damage(damage_amount: int):
-	health -= damage_amount  # Reduce health by the damage amount
-	print("Damage Taken:", damage_amount)  # Print the amount of damage taken
-	print("Current Health:", health)  # Print the current health after damage
+	health -= damage_amount  # Red
 	anyMovement = true
 	await wait_for_animation("damaged", 0.8)  # Play damage animation
 	await is_death()  # Check if the player is dead

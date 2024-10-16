@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://chiaobr3sl0yx"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.gd" id="1_u3ux4"]
-[ext_resource type="PackedScene" uid="uid://dil0md0wm3hfj" path="res://Entities/Player/solider/character_4.tscn" id="2_loqru"]
+[ext_resource type="PackedScene" uid="uid://63vbi3ga6l5m" path="res://Entities/Player/lancer/character_7.tscn" id="2_dx0ks"]
 [ext_resource type="Texture2D" uid="uid://w4uevn7obhnj" path="res://multiplayerLevels/Background.png" id="4_8e4a6"]
 [ext_resource type="Texture2D" uid="uid://cv2fv4whd3ywt" path="res://Werewolf/Werewolf/Werewolf1.png" id="6_ailja"]
 [ext_resource type="Texture2D" uid="uid://cxea33qlsdphq" path="res://assets gg/Knight1.png" id="7_f86cp"]
@@ -11,7 +11,7 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_u3ux4")
-playerScene = ExtResource("2_loqru")
+playerScene = ExtResource("2_dx0ks")
 metadata/_edit_horizontal_guides_ = [585.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

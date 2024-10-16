@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://ddej28xwqkntq"]
+[gd_scene load_steps=80 format=3 uid="uid://ddej28xwqkntq"]
 
 [ext_resource type="PackedScene" uid="uid://2ec0nsyuvj3x" path="res://Entities/Player/realPlayer/player_udamshil.tscn" id="1_7282d"]
 [ext_resource type="Script" path="res://Entities/Player/knight templar/character_6.gd" id="2_d1ai0"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bt71uy87vdd8y" path="res://art/character/All_characters/Characters(100x100)/Knight Templar/Knight Templar/Knight Templar-Walk02.png" id="11_c8o70"]
 [ext_resource type="Script" path="res://Scripts/sword.gd" id="12_40rrl"]
 [ext_resource type="Script" path="res://Scripts/FacingCollisionShape2D.gd" id="13_uuv8u"]
+[ext_resource type="PackedScene" uid="uid://5gqoenu0502a" path="res://Scenes/health_bar.tscn" id="14_6w0qj"]
+[ext_resource type="PackedScene" uid="uid://fm5r1x2paeig" path="res://Scenes/manaBar.tscn" id="15_7phxg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f3xtb"]
 atlas = ExtResource("3_ub0as")
@@ -490,6 +492,14 @@ height = 34.0
 radius = 25.0
 height = 50.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wa4ur"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("HealthBar:fill_mode")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="Player" instance=ExtResource("1_7282d")]
 script = ExtResource("2_d1ai0")
 
@@ -497,8 +507,9 @@ script = ExtResource("2_d1ai0")
 position = Vector2(-43, 15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_joy7j")
-animation = &"attack_3"
+animation = &"attack_1"
 autoplay = "idle"
+frame_progress = 0.0365862
 script = ExtResource("2_d1ai0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
@@ -518,3 +529,16 @@ shape = SubResource("CapsuleShape2D_df4la")
 script = ExtResource("13_uuv8u")
 facing_left_position = Vector2(-47, -2)
 facing_right_position = Vector2(3, -2)
+
+[node name="HealthBar" parent="." index="5" instance=ExtResource("14_6w0qj")]
+offset_left = -73.0
+offset_top = -18.0
+offset_right = -14.0
+offset_bottom = -11.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="6"]
+unique_name_in_owner = true
+replication_config = SubResource("SceneReplicationConfig_wa4ur")
+
+[node name="Node2D" parent="." index="7" instance=ExtResource("15_7phxg")]
+position = Vector2(-44, 35)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://63vbi3ga6l5m"]
+[gd_scene load_steps=71 format=3 uid="uid://63vbi3ga6l5m"]
 
 [ext_resource type="PackedScene" uid="uid://2ec0nsyuvj3x" path="res://Entities/Player/realPlayer/player_udamshil.tscn" id="1_4un7s"]
 [ext_resource type="Texture2D" uid="uid://ceylw2cj8tuyf" path="res://art/character/All_characters/Characters(100x100)/Lancer/Lancer/Lancer-Attack01.png" id="2_0jjwy"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://d5hr7lrweh4d" path="res://art/character/All_characters/Characters(100x100)/Lancer/Lancer/Lancer-Walk01.png" id="9_qamyo"]
 [ext_resource type="Script" path="res://Scripts/sword.gd" id="11_iqpba"]
 [ext_resource type="Script" path="res://Scripts/FacingCollisionShape2D.gd" id="12_ua05q"]
+[ext_resource type="PackedScene" uid="uid://5gqoenu0502a" path="res://Scenes/health_bar.tscn" id="13_rxji4"]
+[ext_resource type="PackedScene" uid="uid://fm5r1x2paeig" path="res://Scenes/manaBar.tscn" id="14_l4mp8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3h2c"]
 atlas = ExtResource("2_0jjwy")
@@ -248,7 +250,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_1",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -431,15 +433,23 @@ animations = [{
 radius = 6.0
 height = 56.0
 
-[node name="Player" instance=ExtResource("1_4un7s")]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_j4v5e"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("HealthBar:fill_mode")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="CharacterBody2D" instance=ExtResource("1_4un7s")]
 script = ExtResource("2_kum27")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(-43, 17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1aplb")
-animation = &"attack_3"
-frame_progress = 0.297752
+animation = &"idle"
+autoplay = "idle"
 
 [node name="coll_right" type="CollisionPolygon2D" parent="." index="3"]
 polygon = PackedVector2Array(-53, -17, -49, -21, -37, -21, -33, -16, -33, -5, -35, -1, -23, -7, -11, -7, -11, 3, -7, 6, -7, 14, -9, 17, -17, 17, -19, 13, -23, 13, -25, 19, -23, 31, -35, 31, -37, 23, -43, 23, -47, 29, -45, 31, -58, 31, -61, 27, -58, 25, -63, 21, -63, 12, -61, 6, -56, 1, -54, 3, -49, -4, -53, -7)
@@ -461,6 +471,19 @@ shape = SubResource("CapsuleShape2D_6ajnk")
 script = ExtResource("12_ua05q")
 facing_left_position = Vector2(-86, 5)
 facing_right_position = Vector2(0, 5)
+
+[node name="HealthBar" parent="." index="6" instance=ExtResource("13_rxji4")]
+offset_left = -73.0
+offset_top = -38.0
+offset_right = -14.0
+offset_bottom = -31.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="7"]
+unique_name_in_owner = true
+replication_config = SubResource("SceneReplicationConfig_j4v5e")
+
+[node name="Node2D" parent="." index="8" instance=ExtResource("14_l4mp8")]
+position = Vector2(-44, 35)
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

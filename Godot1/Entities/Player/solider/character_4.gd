@@ -26,6 +26,7 @@ var enemy = null
 var arrow = "arrow_2"
 var bulletDirection = Vector2(1, 0)
 var can_attack = true
+var previous_position = Vector2()
 signal facing_direction_changed(facing_right: bool)
 
 func _ready():
@@ -33,6 +34,7 @@ func _ready():
 	healthbar.init_health(health)
 	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())
 	can_attack = true
+	previous_position = position
 	if multiplayer.get_unique_id() == get_multiplayer_authority():
 		camera.make_current()
 
@@ -44,7 +46,10 @@ func _physics_process(delta):
 		attack()
 		player_controller(direction)
 		move_and_slide()
-		rpc("sync_position", position)
+
+		if position.distance_to(previous_position) > 10: 
+			rpc("sync_position", position)
+			previous_position = position
 
 @rpc
 func sync_position(pos: Vector2):
@@ -55,8 +60,8 @@ func det_dir(dir):
 		bulletDirection = Vector2(dir, 0)
 		animated_sprite.flip_h = dir == -1
 	emit_signal("facing_direction_changed", !animated_sprite.flip_h)
+	# Sync animation only on significant changes
 	rpc("sync_animation_and_flip", animated_sprite.animation, animated_sprite.flip_h, position)
-
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
@@ -80,7 +85,6 @@ func player_controller(dir):
 				animated_sprite.play("idle")
 			else:
 				animated_sprite.play("run")
-				det_dir(dir)
 		else:
 			speed = 100
 	
@@ -102,9 +106,9 @@ func attack():
 			combo = 1
 			mana += 1
 			$Node2D.increase_mana()
-			rpc("sync_animation_and_flip", "attack_1", animated_sprite.flip_h, position)
+			#rpc("sync_animation_and_flip", "attack_1", animated_sprite.flip_h, position)
 			attack_cooldown_stopped = false
-		elif combo == 1 and not attack_cooldown_stopped and mana != 4:
+		elif combo == 1 and !attack_cooldown_stopped and mana != 4:
 			await wait_for_animation("attack_2", 0.7)
 			send_damage(ATTACK_2_DAMAGE)
 			combo = 0
@@ -118,8 +122,8 @@ func attack():
 			shoot()
 			combo = 0
 			mana = 0
-			rpc("sync_animation_and_flip", "attack_3", animated_sprite.flip_h, position)
 			$Node2D.reset_mana()
+			rpc("sync_animation_and_flip", "attack_3", animated_sprite.flip_h, position)
 			$AttackTimer.stop()
 		
 		anyMovement = false
@@ -146,7 +150,6 @@ func spawn_arrow(position: Vector2, direction: Vector2, arrow_name: String, dama
 
 func send_damage(damage):
 	if enemy_inattack_range and enemy:
-		var knockback_direction = (enemy.position - position).normalized() * -1
 		enemy.take_damage(damage)
 		rpc("sync_animation_and_flip", animated_sprite.animation, animated_sprite.flip_h, position)
 
@@ -156,20 +159,12 @@ func sync_animation_and_flip(anim: String, flip_h: bool, pos: Vector2):
 	animated_sprite.flip_h = flip_h
 	position = pos
 
-func player():
-	pass
-
-@rpc
-func sync_health(new_health: int):
-	health = new_health
-	healthbar.update_health(new_health)
-
 func take_damage(damage_amount):
 	if player_alive:
 		health -= damage_amount
 		anyMovement = true
+		print(self , "damaged true")
 		await wait_for_animation("damaged", 0.8)
-		rpc("sync_health", health)
 		is_death()
 		anyMovement = false
 

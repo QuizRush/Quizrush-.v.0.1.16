@@ -465,11 +465,7 @@ position = Vector2(-44, 18)
 scale = Vector2(1.1, 1.1)
 shape = SubResource("CapsuleShape2D_put77")
 
-[node name="AttackRestTimer" type="Timer" parent="." index="3"]
-wait_time = 1.7
-one_shot = true
-
-[node name="player_hitbox" type="Area2D" parent="." index="5" node_paths=PackedStringArray("player", "facing_shape")]
+[node name="player_hitbox" type="Area2D" parent="." index="4" node_paths=PackedStringArray("player", "facing_shape")]
 position = Vector2(-22, 14)
 script = ExtResource("10_cjb77")
 player = NodePath("..")
@@ -480,17 +476,17 @@ shape = SubResource("CapsuleShape2D_tpn0e")
 script = ExtResource("10_gq8fp")
 facing_left_position = Vector2(-46, 0)
 
-[node name="HealthBar" parent="." index="6" instance=ExtResource("13_knuj0")]
+[node name="HealthBar" parent="." index="5" instance=ExtResource("13_knuj0")]
 offset_left = -73.0
 offset_top = -11.0
 offset_right = -14.0
 offset_bottom = -4.0
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="7"]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="6"]
 unique_name_in_owner = true
 replication_config = SubResource("SceneReplicationConfig_nqndi")
 
-[node name="Node2D" parent="." index="8" instance=ExtResource("14_da5xb")]
+[node name="Node2D" parent="." index="7" instance=ExtResource("14_da5xb")]
 position = Vector2(-44, 39)
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]

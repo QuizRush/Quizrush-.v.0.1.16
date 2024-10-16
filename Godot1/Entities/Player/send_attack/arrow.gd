@@ -12,15 +12,14 @@ func _ready():
 func set_direction(bulletDirection: Vector2, arrow: String, self__, damage):
 	damagez = damage
 	self_ = self__
-	$AnimatedSprite2D.play(arrow)  # Play the arrow animation
+	$AnimatedSprite2D.play(arrow)
 	direction = bulletDirection
-	rotation_degrees = rad_to_deg(global_position.angle_to_point(global_position + direction))
+	rotation_degrees = direction.angle() * 180 / PI 
 
 func _physics_process(delta):
-	global_position += direction * speed * delta
+	global_position += direction * speed * delta 
 
 func _on_body_entered(body):
-	if body.has_method("take_damage"):
-		if self_ != body:
-			body.take_damage(damagez)  # Call the take_damage method on the body
-			queue_free()  # Free the arrow after it hits the target
+	if body.has_method("take_damage") and self_ != body:
+		body.take_damage(damagez)
+		queue_free()
