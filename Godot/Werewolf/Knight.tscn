@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://djr0ly705347w"]
 
-[ext_resource type="Script" path="res://Knight.gd" id="1_8w8x1"]
+[ext_resource type="Script" path="res://Werewolf/Knight.gd" id="1_8w8x1"]
 [ext_resource type="Texture2D" uid="uid://bmcgwxeilnimu" path="res://Knight/Knight-Attack03.png" id="1_n2os1"]
 [ext_resource type="Texture2D" uid="uid://bpbhsl0nl8nt5" path="res://Knight/Knight-Idle.png" id="1_vvk8v"]
 

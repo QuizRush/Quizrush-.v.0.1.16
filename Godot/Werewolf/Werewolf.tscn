@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://dfg0macbkork1"]
 
-[ext_resource type="Script" path="res://Werewolf.gd" id="1_8goer"]
+[ext_resource type="Script" path="res://Werewolf/Werewolf.gd" id="1_8goer"]
 [ext_resource type="Texture2D" uid="uid://b7og1mu52ykeh" path="res://Werewolf/Werewolf with shadows/Werewolf-Idle.png" id="1_qrnea"]
 [ext_resource type="Texture2D" uid="uid://b5a8685unq5hd" path="res://Werewolf/Werewolf with shadows/Werewolf-Attack02.png" id="2_va4kb"]
 [ext_resource type="Texture2D" uid="uid://d31jqosexick2" path="res://Werewolf/Werewolf with shadows/Werewolf-Walk.png" id="3_1mcdp"]

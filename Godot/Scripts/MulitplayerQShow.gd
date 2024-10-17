@@ -33,8 +33,8 @@ func fetch_questions():
 	
 
 func display_questions(dataList):
-	var vbox = $Panel3/VBoxContainer
-	var vvbox3 = $Panel3/VBoxContainer5
+	var vbox = $Panel3/ScrollContainer/HBoxContainer/VBoxContainer
+	var vvbox3 =$Panel3/ScrollContainer/HBoxContainer/VBoxContainer5
 	var json_instance = JSON.new()
 	var objects = dataList.objects
 	
@@ -64,9 +64,9 @@ func display_questions(dataList):
 		
 func _on_done_pressed():
 	var checked_questions = []
-	var vvbox3 = $Panel3/VBoxContainer5
-	var vvbox2 = $Panel2/VBoxContainer4
-	var vvbox1 = $Panel/VBoxContainer3
+	var vvbox3 = $Panel3/ScrollContainer/HBoxContainer/VBoxContainer5
+	var vvbox2 = $Panel2/ScrollContainer/HBoxContainer/VBoxContainer4
+	var vvbox1 = $Panel/ScrollContainer/HBoxContainer/VBoxContainer3
 	for child in vvbox3.get_children():
 		if child is CheckBox and child.is_pressed():
 			var question = child.get_meta("question") 
@@ -86,8 +86,8 @@ func _on_done_pressed():
 	$".".visible = false
 	
 func display_questions1(dataList1):
-	var vbox1 = $Panel/VBoxContainer1
-	var vvbox1 = $Panel/VBoxContainer3
+	var vbox1 =$Panel/ScrollContainer/HBoxContainer/VBoxContainer1
+	var vvbox1 =$Panel/ScrollContainer/HBoxContainer/VBoxContainer3
 	var json_instance1 = JSON.new()
 	var objects1 = dataList1.objects 
 	for obj1 in objects1:
@@ -106,8 +106,8 @@ func display_questions1(dataList1):
 					vbox1.add_child(Control.new())   
 					
 func display_questions2(dataList2):
-	var vbox2 =$Panel2/VBoxContainer2
-	var vvbox2 =$Panel2/VBoxContainer4
+	var vbox2 =$Panel2/ScrollContainer/HBoxContainer/VBoxContainer2
+	var vvbox2 =$Panel2/ScrollContainer/HBoxContainer/VBoxContainer4
 	var json_instance2 = JSON.new()
 	var objects2 = dataList2.objects 
 	for obj2 in objects2:
