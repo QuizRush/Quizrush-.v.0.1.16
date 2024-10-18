@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbt21s16y7e1w"]
+
+[ext_resource type="Script" path="res://levels/level_4.gd" id="1_0tw15"]
+[ext_resource type="PackedScene" uid="uid://dbh5v351hg1a2" path="res://Entities/Player/archer/character_5.tscn" id="2_gd5il"]
+[ext_resource type="Texture2D" uid="uid://dwgnlvriscxwo" path="res://assets/background/map background/BackDrops/BackDrops/an orange city.png" id="3_u1j0a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oodvo"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1d3q6"]
+distance = 38.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_04ii5"]
+distance = -643.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uujm"]
+size = Vector2(387.25, 33.875)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0tw15")
+playerScene = ExtResource("2_gd5il")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_oodvo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12, 339)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_1d3q6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1086, 332)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_1d3q6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(1, -3)
+polygon = PackedVector2Array(-260, 532, 181, 537, 349, 443, 811, 444, 810, 462, 753, 466, 753, 630, -267, 631)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(957, 437, 1369, 439, 1367, 633, 1140, 634, 1140, 466, 960, 466)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(5, -16)
+shape = SubResource("WorldBoundaryShape2D_04ii5")
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="."]
+position = Vector2(76, 40)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(750, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer1"]
+position = Vector2(475, 282)
+scale = Vector2(0.8165, 0.625)
+texture = ExtResource("3_u1j0a")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(945, 596)
+shape = SubResource("RectangleShape2D_7uujm")
+
+[node name="SpawnPoint2" type="Node2D" parent="." groups=["SpawnPoint"]]
+position = Vector2(1043, 391)
+
+[node name="SpawnPoint" type="Node2D" parent="." groups=["SpawnPoint"]]
+position = Vector2(62, 499)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
